@@ -30,15 +30,18 @@ export const site = {
       "/media/gallery-2.jpg",
       "/media/gallery-3.jpg",
       "/media/gallery-4.jpg",
+      "/media/gallery-5.jpg",
+      "/media/gallery-6.jpg",
     ],
   },
 
-  // Prices are shared across languages; the bike names/notes are translated
-  // in `dict[...].bikes.items` below (same order).
-  bikes: [
-    { img: "/media/bike-1.jpg", priceDay: 90, priceHalf: 60 },
-    { img: "/media/bike-2.jpg", priceDay: 120, priceHalf: 75 },
-    { img: "/media/bike-3.jpg", priceDay: 110, priceHalf: 70 },
+  // One mountain e-bike, rented by the hour.
+  bike: "/media/bike.jpg",
+  // Prices are placeholders — edit the numbers freely. `popular` highlights one option.
+  pricing: [
+    { hours: 1, price: 40 },
+    { hours: 2, price: 70 },
+    { hours: 4, price: 120, popular: true },
   ],
   currency: "lei",
 };
@@ -62,9 +65,11 @@ type Dict = {
   bikes: {
     title: string;
     lead: string;
-    perDay: string;
-    perHalf: string;
-    items: { name: string; note: string }[];
+    bikeName: string;
+    bikeDesc: string;
+    includes: string;
+    hourUnit: { one: string; many: string };
+    popular: string;
     cta: string;
   };
   gallery: { title: string; lead: string };
@@ -102,15 +107,13 @@ export const dict: Record<Lang, Dict> = {
       ],
     },
     bikes: {
-      title: "Bicicletele & prețurile noastre",
-      lead: "Biciclete electrice întreținute, cu cască și încuietoare incluse. Rezervă printr-un simplu apel.",
-      perDay: "/ zi",
-      perHalf: "½ zi",
-      items: [
-        { name: "E-bike de oraș", note: "Confortabilă și ușoară, ideală pentru plimbări relaxate." },
-        { name: "E-bike de munte", note: "Robustă, pentru poteci și terenuri accidentate." },
-        { name: "E-bike trekking", note: "Versatilă, perfectă pentru ture lungi de o zi." },
-      ],
+      title: "Bicicleta & prețurile",
+      lead: "O bicicletă electrică de munte premium, întreținută cu grijă. Închiriaz-o pe 1, 2 sau 4 ore.",
+      bikeName: "E-bike de munte",
+      bikeDesc: "Robustă și fiabilă, potrivită pentru poteci, dealuri și drumurile din jurul Sovatei.",
+      includes: "Cască și încuietoare incluse",
+      hourUnit: { one: "oră", many: "ore" },
+      popular: "Cea mai aleasă",
       cta: "Rezervă telefonic",
     },
     gallery: { title: "Galerie", lead: "Locuri pe care le vei descoperi în jurul Sovatei." },
@@ -147,15 +150,13 @@ export const dict: Record<Lang, Dict> = {
       ],
     },
     bikes: {
-      title: "Kerékpárjaink és áraink",
-      lead: "Karbantartott elektromos kerékpárok, sisakkal és zárral. Foglalás egyszerű telefonhívással.",
-      perDay: "/ nap",
-      perHalf: "½ nap",
-      items: [
-        { name: "Városi e-bike", note: "Kényelmes és könnyű, ideális laza túrázáshoz." },
-        { name: "Hegyi e-bike", note: "Strapabíró, ösvényekre és nehéz terepre." },
-        { name: "Trekking e-bike", note: "Sokoldalú, tökéletes hosszú, egész napos túrákhoz." },
-      ],
+      title: "A kerékpár és az árak",
+      lead: "Egy prémium, gondosan karbantartott hegyi elektromos kerékpár. Bérelhető 1, 2 vagy 4 órára.",
+      bikeName: "Hegyi e-bike",
+      bikeDesc: "Strapabíró és megbízható, ösvényekre, dombokra és a Szováta környéki utakra.",
+      includes: "Sisak és zár mellékelve",
+      hourUnit: { one: "óra", many: "óra" },
+      popular: "Legnépszerűbb",
       cta: "Foglalás telefonon",
     },
     gallery: { title: "Galéria", lead: "Helyek, amelyeket Szováta környékén fedezhetsz fel." },
@@ -192,15 +193,13 @@ export const dict: Record<Lang, Dict> = {
       ],
     },
     bikes: {
-      title: "Our bikes & prices",
-      lead: "Well-kept electric bikes, helmet and lock included. Book with a quick phone call.",
-      perDay: "/ day",
-      perHalf: "½ day",
-      items: [
-        { name: "City e-bike", note: "Comfortable and light, ideal for relaxed rides." },
-        { name: "Mountain e-bike", note: "Rugged, built for trails and rough terrain." },
-        { name: "Trekking e-bike", note: "Versatile, perfect for long full-day tours." },
-      ],
+      title: "The bike & prices",
+      lead: "One premium, well-kept mountain e-bike. Rent it for 1, 2 or 4 hours.",
+      bikeName: "Mountain e-bike",
+      bikeDesc: "Rugged and reliable, built for the trails, hills and country roads around Sovata.",
+      includes: "Helmet & lock included",
+      hourUnit: { one: "hour", many: "hours" },
+      popular: "Most popular",
       cta: "Book by phone",
     },
     gallery: { title: "Gallery", lead: "Places you'll discover around Sovata." },

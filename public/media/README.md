@@ -8,8 +8,8 @@ from Facebook, keeping the **same filenames**, and the site updates automaticall
 | `logo.png`        | Logo (footer / branding)        | square, transparent   |
 | `hero.jpg`        | Full-screen hero background     | landscape, ~2000px wide |
 | `about.jpg`       | "Why an e-bike?" portrait image | portrait, ~1400px tall  |
-| `bike-1/2/3.jpg`  | The three bike cards            | landscape, ~900px wide  |
-| `gallery-1..4.jpg`| Gallery grid                    | ~1000px wide            |
+| `bike.jpg`        | The mountain e-bike photo       | landscape, ~900px wide  |
+| `gallery-1..6.jpg`| Gallery grid                    | ~1000px wide            |
 
 ## Video hero (optional)
 

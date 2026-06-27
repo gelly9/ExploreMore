@@ -7,6 +7,9 @@ import { Reveal } from "./Reveal";
 
 export function Bikes() {
   const { t } = useLang();
+  const duration = (h: number) =>
+    `${h} ${h === 1 ? t.bikes.hourUnit.one : t.bikes.hourUnit.many}`;
+
   return (
     <section id="bikes" className="bg-paper py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -20,48 +23,78 @@ export function Bikes() {
           <p className="mt-4 text-lg leading-relaxed text-muted">{t.bikes.lead}</p>
         </Reveal>
 
-        <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-          {site.bikes.map((bike, i) => {
-            const item = t.bikes.items[i];
-            return (
-              <Reveal key={i} delay={i * 100}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm transition-shadow hover:shadow-xl">
-                  <div className="relative overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={asset(bike.img)}
-                      alt={item.name}
-                      className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute right-4 top-4 rounded-full bg-lime px-3.5 py-1.5 font-display text-sm font-extrabold text-charcoal shadow">
-                      {bike.priceDay} {site.currency}
-                      <span className="font-medium opacity-70"> {t.bikes.perDay}</span>
+        <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
+          {/* The bike */}
+          <Reveal>
+            <div className="relative h-full min-h-72 overflow-hidden rounded-3xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={asset(site.bike)}
+                alt={t.bikes.bikeName}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent p-6 pt-20">
+                <h3 className="font-display text-2xl font-extrabold text-white">
+                  {t.bikes.bikeName}
+                </h3>
+                <p className="mt-1 max-w-sm text-sm leading-relaxed text-white/80">
+                  {t.bikes.bikeDesc}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-lime px-3 py-1.5 text-xs font-bold text-charcoal">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  {t.bikes.includes}
+                </span>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Pricing by duration */}
+          <Reveal delay={120} className="flex flex-col justify-center">
+            <div className="space-y-3">
+              {site.pricing.map((p) => {
+                const popular = "popular" in p && p.popular;
+                return (
+                  <div
+                    key={p.hours}
+                    className={`flex items-center justify-between rounded-2xl border px-6 py-5 transition-colors ${
+                      popular
+                        ? "border-lime bg-lime/10"
+                        : "border-black/10 bg-white hover:border-black/20"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="font-display text-2xl font-extrabold text-charcoal">
+                        {duration(p.hours)}
+                      </span>
+                      {popular && (
+                        <span className="rounded-full bg-lime px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-charcoal">
+                          {t.bikes.popular}
+                        </span>
+                      )}
                     </div>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="font-display text-xl font-bold text-charcoal">{item.name}</h3>
-                    <p className="mt-2 flex-1 text-muted">{item.note}</p>
-                    <div className="mt-5 flex items-center justify-between border-t border-black/5 pt-4 text-sm">
-                      <span className="text-muted">{t.bikes.perHalf}</span>
-                      <span className="font-display font-bold text-charcoal">
-                        {bike.priceHalf} {site.currency}
+                    <div className="whitespace-nowrap text-right">
+                      <span className="font-display text-2xl font-extrabold text-charcoal">
+                        {p.price}
+                      </span>
+                      <span className="ml-1 text-sm font-medium text-muted">
+                        {site.currency}
                       </span>
                     </div>
                   </div>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
+                );
+              })}
+            </div>
 
-        <Reveal className="mt-12 text-center">
-          <a
-            href="#contact"
-            className="inline-block rounded-full bg-charcoal px-8 py-4 font-semibold text-white transition-transform hover:-translate-y-0.5"
-          >
-            {t.bikes.cta}
-          </a>
-        </Reveal>
+            <a
+              href="#contact"
+              className="mt-7 inline-block self-start rounded-full bg-charcoal px-8 py-4 font-semibold text-white transition-transform hover:-translate-y-0.5"
+            >
+              {t.bikes.cta}
+            </a>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
