@@ -54,11 +54,11 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-ink/70 to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pt-24 sm:px-8">
-        <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-lime sm:text-sm">
+      <div className="relative z-10 mx-auto w-full min-w-0 max-w-6xl px-5 pt-24 sm:px-8">
+        <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-lime sm:text-sm sm:tracking-[0.28em]">
           {t.hero.kicker}
         </p>
-        <h1 className="font-display text-5xl font-extrabold leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-8xl">
+        <h1 className="font-display text-[clamp(2.5rem,11vw,7rem)] font-extrabold leading-[0.95] tracking-tight text-white [text-wrap:balance]">
           {t.hero.titleTop}
           <br />
           <span className="text-lime">{t.hero.titleBottom}</span>
