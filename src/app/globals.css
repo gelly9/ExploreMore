@@ -1,14 +1,26 @@
 @import "tailwindcss";
 
-/* Brand tokens — pulled from the Explore More logo (charcoal + lime green) */
+/* Brand tokens — charcoal + lime from the logo, evolved with a salt-teal
+   secondary (Bear Lake / spa heritage) and warm forest neutrals. */
 @theme inline {
-  --color-ink: #181818;
-  --color-charcoal: #2f2f2f;
-  --color-charcoal-soft: #3a3a3a;
+  /* Neutrals — warm, not pure black/white */
+  --color-ink: #14160e;          /* forest near-black (hero / contact) */
+  --color-forest: #1d2719;       /* deep pine panel */
+  --color-charcoal: #2a2a24;     /* primary text */
+  --color-charcoal-soft: #3a3a32;
+  --color-paper: #f4f2ea;        /* warm section ground */
+  --color-cream: #faf8f1;        /* card ground */
+  --color-muted: #6c6c61;
+
+  /* Accent — lime, reserved for primary/interactive only */
   --color-lime: #8dc63f;
   --color-lime-dark: #6fa82e;
-  --color-paper: #f6f6f3;
-  --color-muted: #6b6b6b;
+  --color-lime-soft: #e8f3d6;
+
+  /* Secondary — salt-teal */
+  --color-teal: #2e6e6a;
+  --color-teal-dark: #234f4c;
+  --color-teal-soft: #d8e8e6;
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);
@@ -22,9 +34,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Belt-and-suspenders against horizontal overflow on mobile.
-   `clip` (vs `hidden`) doesn't create a scroll container, so it won't
-   break the fixed header, sticky elements, or smooth anchor scrolling. */
 html,
 body {
   overflow-x: clip;
@@ -32,7 +41,7 @@ body {
 }
 
 body {
-  background: #ffffff;
+  background: var(--color-cream);
   color: var(--color-charcoal);
   font-family: var(--font-body), system-ui, sans-serif;
 }
@@ -42,30 +51,55 @@ body {
   color: #1a1a1a;
 }
 
-/* Scroll-reveal: elements start hidden, .is-visible fades them up */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
+/* Tabular figures for prices/distances — data reads as data */
+.nums {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
 }
 
-/* Subtle continuous drift for the scroll hint */
-@keyframes nudge {
-  0%, 100% { transform: translateY(0); opacity: 0.7; }
-  50% { transform: translateY(6px); opacity: 1; }
+/* ── Scroll-reveal: shorter, faster, more deliberate than a blanket fade ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.animate-nudge {
-  animation: nudge 1.8s ease-in-out infinite;
+.reveal[data-dir="left"] { transform: translateX(-24px); }
+.reveal[data-dir="right"] { transform: translateX(24px); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ── Hero entrance: masked line-rise + staggered fades (runs on load) ── */
+.line-mask { display: block; overflow: hidden; padding-bottom: 0.08em; }
+.line-rise {
+  display: block;
+  transform: translateY(115%);
+  animation: lineRise 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes lineRise {
+  to { transform: translateY(0); }
+}
+.enter {
+  opacity: 0;
+  animation: enterUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes enterUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ── Ken Burns: slow cinematic drift on the hero image ── */
+.kenburns {
+  animation: kenburns 26s ease-in-out infinite alternate;
+}
+@keyframes kenburns {
+  from { transform: scale(1.05) translate3d(0, 0, 0); }
+  to { transform: scale(1.16) translate3d(-2%, -1.5%, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .animate-nudge { animation: none; }
+  .line-rise { transform: none; animation: none; }
+  .enter { opacity: 1; animation: none; }
+  .kenburns { animation: none; }
 }

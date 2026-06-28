@@ -18,21 +18,21 @@ export function Header() {
 
   const links = [
     { href: "#about", label: t.nav.about },
-    { href: "#bikes", label: t.nav.bikes },
+    { href: "#prices", label: t.nav.prices },
     { href: "#gallery", label: t.nav.gallery },
     { href: "#contact", label: t.nav.contact },
   ];
 
   const solid = scrolled || open;
+  const activeIdx = LANGS.indexOf(lang);
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        solid ? "bg-white/90 shadow-sm backdrop-blur" : "bg-transparent"
+        solid ? "bg-cream/90 shadow-sm backdrop-blur" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
-        {/* Wordmark */}
         <a
           href="#top"
           className={`font-display text-lg font-extrabold tracking-tight transition-colors ${
@@ -42,13 +42,12 @@ export function Header() {
           Explore<span className="text-lime">More</span>
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden items-center gap-7 md:flex">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className={`text-sm font-medium transition-colors hover:text-lime ${
+              className={`text-sm font-medium transition-colors hover:text-lime-dark ${
                 solid ? "text-charcoal" : "text-white/90"
               }`}
             >
@@ -58,19 +57,28 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          {/* Language toggle */}
+          {/* Language toggle with a sliding thumb */}
           <div
-            className={`flex items-center rounded-full p-0.5 text-xs font-semibold ${
+            className={`relative flex rounded-full p-0.5 text-xs font-semibold ${
               solid ? "bg-paper" : "bg-white/15"
             }`}
           >
+            <span
+              aria-hidden
+              className="absolute bottom-0.5 top-0.5 rounded-full bg-lime transition-transform duration-300 ease-out"
+              style={{
+                left: 2,
+                width: "calc((100% - 4px) / 3)",
+                transform: `translateX(${activeIdx * 100}%)`,
+              }}
+            />
             {LANGS.map((l) => (
               <button
                 key={l}
                 onClick={() => setLang(l)}
-                className={`rounded-full px-2.5 py-1 uppercase transition-colors ${
+                className={`relative z-10 flex-1 rounded-full px-2.5 py-1 uppercase transition-colors ${
                   lang === l
-                    ? "bg-lime text-charcoal"
+                    ? "text-charcoal"
                     : solid
                       ? "text-muted hover:text-charcoal"
                       : "text-white/80 hover:text-white"
@@ -82,7 +90,6 @@ export function Header() {
             ))}
           </div>
 
-          {/* Call button (desktop) */}
           <a
             href={`tel:${site.phone.replace(/\s/g, "")}`}
             className="hidden rounded-full bg-lime px-4 py-2 text-sm font-semibold text-charcoal transition-transform hover:-translate-y-0.5 sm:inline-block"
@@ -90,7 +97,6 @@ export function Header() {
             {t.hero.ctaCall}
           </a>
 
-          {/* Mobile menu toggle */}
           <button
             onClick={() => setOpen((v) => !v)}
             className={`md:hidden ${solid ? "text-charcoal" : "text-white"}`}
@@ -114,9 +120,8 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <nav className="border-t border-black/5 bg-white px-5 pb-5 pt-2 md:hidden">
+        <nav className="border-t border-black/5 bg-cream px-5 pb-5 pt-2 md:hidden">
           {links.map((l) => (
             <a
               key={l.href}

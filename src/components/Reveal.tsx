@@ -2,16 +2,19 @@
 
 import { useEffect, useRef, useState, ReactNode, ElementType } from "react";
 
-// Wraps children and fades them up when scrolled into view.
+// Fades children into view on scroll. Kept deliberate (short travel) and used
+// sparingly — on section intros and key media, not every block.
 export function Reveal({
   children,
   as: Tag = "div",
   delay = 0,
+  dir,
   className = "",
 }: {
   children: ReactNode;
   as?: ElementType;
   delay?: number;
+  dir?: "up" | "left" | "right";
   className?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
@@ -36,6 +39,7 @@ export function Reveal({
   return (
     <Tag
       ref={ref}
+      data-dir={dir && dir !== "up" ? dir : undefined}
       className={`reveal ${shown ? "is-visible" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >

@@ -13,10 +13,10 @@ export function Contact() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: details */}
           <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-lime">
-              {t.nav.contact}
+            <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-white/70">
+              <span className="h-px w-6 bg-lime" /> {t.nav.contact}
             </p>
-            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
               {t.contact.title}
             </h2>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-white/70">
@@ -35,11 +35,23 @@ export function Contact() {
                 <span className="block text-xs font-semibold uppercase tracking-wider opacity-70">
                   {t.contact.callLabel}
                 </span>
-                <span className="font-display text-xl font-extrabold">{site.phone}</span>
+                <span className="nums font-display text-xl font-extrabold">{site.phone}</span>
               </span>
             </a>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {/* Trust signals */}
+            <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+              {t.contact.trust.map((item) => (
+                <li key={item} className="flex items-center gap-1.5 text-sm text-white/70">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8dc63f" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <a
                 href={site.facebook}
                 target="_blank"

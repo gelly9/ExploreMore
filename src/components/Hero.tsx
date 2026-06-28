@@ -18,7 +18,7 @@ export function Hero() {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         if (bgRef.current) {
-          bgRef.current.style.transform = `translate3d(0, ${window.scrollY * 0.28}px, 0) scale(1.08)`;
+          bgRef.current.style.transform = `translate3d(0, ${window.scrollY * 0.28}px, 0)`;
         }
       });
     };
@@ -32,11 +32,11 @@ export function Hero() {
 
   return (
     <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink">
-      {/* Background media */}
-      <div ref={bgRef} className="absolute inset-0 scale-105 will-change-transform">
+      {/* Background media (parallax wrapper) + Ken Burns drift on the image */}
+      <div ref={bgRef} className="absolute inset-0 will-change-transform">
         {site.media.heroVideo ? (
           <video
-            className="h-full w-full object-cover"
+            className="kenburns h-full w-full object-cover"
             src={asset(site.media.heroVideo)}
             poster={asset(site.media.hero)}
             autoPlay
@@ -46,29 +46,57 @@ export function Hero() {
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={asset(site.media.hero)} alt="" className="h-full w-full object-cover" />
+          <img src={asset(site.media.hero)} alt="" className="kenburns h-full w-full object-cover" />
         )}
       </div>
-      {/* Cinematic gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/30 to-ink/95" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink/70 to-transparent" />
+      {/* Cinematic gradient — warmer, forest-dusk tone */}
+      <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/25 to-ink/95" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/20 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto w-full min-w-0 max-w-6xl px-5 pt-24 sm:px-8">
-        <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-lime sm:text-sm sm:tracking-[0.28em]">
-          {t.hero.kicker}
+        <p
+          className="enter mb-6 flex items-center gap-3"
+          style={{ animationDelay: "0.1s" }}
+        >
+          <span className="h-px w-7 bg-lime" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/85">
+            {t.hero.kicker}
+          </span>
         </p>
-        <h1 className="font-display text-[clamp(2.5rem,11vw,7rem)] font-extrabold leading-[0.95] tracking-tight text-white [text-wrap:balance]">
-          {t.hero.titleTop}
-          <br />
-          <span className="text-lime">{t.hero.titleBottom}</span>
+
+        <h1 className="font-display text-[clamp(2.5rem,11vw,7rem)] leading-[0.95] tracking-tight">
+          <span className="line-mask">
+            <span
+              className="line-rise font-semibold text-white"
+              style={{ animationDelay: "0.24s" }}
+            >
+              {t.hero.titleTop}
+            </span>
+          </span>
+          <span className="line-mask">
+            <span
+              className="line-rise font-extrabold text-lime"
+              style={{ animationDelay: "0.36s" }}
+            >
+              {t.hero.titleBottom}
+            </span>
+          </span>
         </h1>
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+
+        <p
+          className="enter mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg"
+          style={{ animationDelay: "0.6s" }}
+        >
           {t.hero.subtitle}
         </p>
-        <div className="mt-9 flex flex-wrap gap-4">
+
+        <div
+          className="enter mt-9 flex flex-wrap gap-4"
+          style={{ animationDelay: "0.75s" }}
+        >
           <a
-            href="#bikes"
+            href="#rides"
             className="rounded-full bg-lime px-7 py-3.5 text-sm font-semibold text-charcoal transition-transform hover:-translate-y-0.5 sm:text-base"
           >
             {t.hero.ctaPrimary}
@@ -80,13 +108,6 @@ export function Hero() {
             {t.hero.ctaCall}
           </a>
         </div>
-      </div>
-
-      {/* Scroll hint */}
-      <div className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-white/70">
-        <svg className="animate-nudge" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 5v14M19 12l-7 7-7-7" />
-        </svg>
       </div>
     </section>
   );

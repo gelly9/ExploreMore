@@ -6,7 +6,7 @@ import { site } from "@/content/site";
 export function Footer() {
   const { t } = useLang();
   return (
-    <footer className="bg-charcoal py-10 text-white/70">
+    <footer className="bg-forest py-10 text-white/70">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-5 text-center sm:flex-row sm:justify-between sm:px-8 sm:text-left">
         <div>
           <p className="font-display text-lg font-extrabold text-white">
