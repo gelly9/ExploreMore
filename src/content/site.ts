@@ -96,6 +96,8 @@ type Dict = {
     title: string;
     lead: string;
     callLabel: string;
+    whatsappLabel: string;
+    whatsappMsg: string; // prefilled WhatsApp message
     fbLabel: string;
     locationLabel: string;
     hoursLabel: string;
@@ -151,6 +153,8 @@ export const dict: Record<Lang, Dict> = {
       title: "Contactează-ne",
       lead: "Rezervă-ți bicicleta sau întreabă-ne orice — îți răspundem cu drag.",
       callLabel: "Sună-ne",
+      whatsappLabel: "Scrie-ne pe WhatsApp",
+      whatsappMsg: "Bună! Aș dori să închiriez o bicicletă electrică în Sovata.",
       fbLabel: "Scrie-ne pe Facebook",
       locationLabel: "Locație",
       hoursLabel: "Program",
@@ -205,6 +209,8 @@ export const dict: Record<Lang, Dict> = {
       title: "Lépj kapcsolatba velünk",
       lead: "Foglald le a kerékpárod, vagy kérdezz bármit — szívesen segítünk.",
       callLabel: "Hívj minket",
+      whatsappLabel: "Írj nekünk WhatsAppon",
+      whatsappMsg: "Szia! Szeretnék elektromos kerékpárt bérelni Szovátán.",
       fbLabel: "Írj a Facebookon",
       locationLabel: "Helyszín",
       hoursLabel: "Nyitvatartás",
@@ -259,6 +265,8 @@ export const dict: Record<Lang, Dict> = {
       title: "Get in touch",
       lead: "Reserve your bike or ask us anything — we're happy to help.",
       callLabel: "Call us",
+      whatsappLabel: "Message us on WhatsApp",
+      whatsappMsg: "Hi! I'd like to rent an e-bike in Sovata.",
       fbLabel: "Message us on Facebook",
       locationLabel: "Location",
       hoursLabel: "Hours",

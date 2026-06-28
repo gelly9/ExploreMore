@@ -9,6 +9,7 @@ import { Prices } from "./Prices";
 import { Gallery } from "./Gallery";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
+import { FloatingWhatsApp } from "./FloatingWhatsApp";
 
 // Shared page composition rendered by each language route (/, /hu/, /en/).
 // Content for the language is selected here and passed down as props.
@@ -31,6 +32,7 @@ export function Home({ lang }: { lang: Lang }) {
         <Contact t={t} />
       </main>
       <Footer t={t} />
+      <FloatingWhatsApp t={t} />
     </>
   );
 }
