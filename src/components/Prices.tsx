@@ -9,7 +9,7 @@ export function Prices({ t }: { t: Content }) {
     `${h} ${h === 1 ? t.prices.hourUnit.one : t.prices.hourUnit.many}`;
 
   return (
-    <section id="prices" className="bg-paper py-24 sm:py-32">
+    <section id="prices" className="bg-paper pt-12 pb-24 sm:pt-16 sm:pb-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
           <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-charcoal">

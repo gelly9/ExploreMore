@@ -59,7 +59,7 @@ export function About({ t }: { t: Content }) {
   }, []);
 
   return (
-    <section id="about" className="overflow-hidden bg-paper py-24 sm:py-32">
+    <section id="about" className="overflow-hidden bg-paper pt-24 pb-12 sm:pt-32 sm:pb-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal className="order-2 lg:order-1">
@@ -84,7 +84,7 @@ export function About({ t }: { t: Content }) {
               <img
                 src={asset(site.media.about)}
                 alt={t.images.aboutAlt}
-                className="aspect-[4/5] w-full object-cover"
+                className="aspect-[4/3] w-full object-cover"
               />
               <div className="absolute bottom-5 left-5 rounded-2xl bg-cream/90 px-5 py-3 backdrop-blur">
                 <p className="font-display text-2xl font-extrabold text-charcoal">Sovata</p>
