@@ -6,7 +6,7 @@ import { Reveal } from "./Reveal";
 
 export function Gallery({ t }: { t: Content }) {
   return (
-    <section id="gallery" className="bg-cream py-24 sm:py-32">
+    <section id="gallery" className="bg-cream py-12 sm:py-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
           <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-charcoal">

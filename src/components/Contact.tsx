@@ -7,7 +7,7 @@ import { Reveal } from "./Reveal";
 export function Contact({ t }: { t: Content }) {
   const tel = site.phone.replace(/\s/g, "");
   return (
-    <section id="contact" className="bg-ink py-24 text-white sm:py-32">
+    <section id="contact" className="bg-ink py-12 text-white sm:py-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: details */}
