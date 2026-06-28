@@ -9,14 +9,27 @@ export type Lang = "ro" | "hu" | "en";
 export const LANGS: Lang[] = ["ro", "hu", "en"];
 export const DEFAULT_LANG: Lang = "ro";
 
+export const SITE_URL = "https://exploremore.ro";
+
 // Non-translatable facts ----------------------------------------------------
 export const site = {
   brand: "Explore More",
-  // TODO: replace with the real phone number
-  phone: "+40 7XX XXX XXX",
+  phone: "+40753538524",
   facebook: "https://www.facebook.com/EbikeSovata",
   location: "Sovata, Mureș, România",
   mapEmbed: "https://www.google.com/maps?q=Sovata%2C%20Romania&output=embed",
+
+  // Business address & geo — used for the LocalBusiness schema (local SEO).
+  address: {
+    street: "", // TODO: add the real street address
+    locality: "Sovata",
+    region: "Mureș",
+    postalCode: "545500",
+    countryCode: "RO",
+  },
+  geo: { lat: 46.5979, lng: 25.0786 }, // approx Sovata centre — refine to the address
+  hours: { opens: "09:00", closes: "19:00" }, // daily
+  priceRange: "40–120 RON",
 
   media: {
     logo: "/media/logo.png",
@@ -50,6 +63,10 @@ export const site = {
 
 // Translatable copy ---------------------------------------------------------
 type Dict = {
+  // Per-language SEO metadata (<title> / meta description).
+  seo: { title: string; description: string };
+  // Descriptive image alt text (image SEO + accessibility).
+  images: { heroAlt: string; aboutAlt: string; galleryAlt: string };
   nav: { about: string; prices: string; gallery: string; contact: string };
   hero: {
     kicker: string;
@@ -90,6 +107,16 @@ type Dict = {
 
 export const dict: Record<Lang, Dict> = {
   ro: {
+    seo: {
+      title: "Închiriere biciclete electrice Sovata | Explore More",
+      description:
+        "Închiriază o bicicletă electrică de munte în Sovata — pe 1, 2 sau 4 ore. Explorează Lacul Ursu, dealurile de sare și potecile din pădure. Cască și încuietoare incluse.",
+    },
+    images: {
+      heroAlt: "Bicicletă electrică pe potecile din jurul Sovatei",
+      aboutAlt: "Peisaj montan în jurul Sovatei",
+      galleryAlt: "Priveliște din jurul Sovatei",
+    },
     nav: { about: "Despre", prices: "Prețuri", gallery: "Galerie", contact: "Contact" },
     hero: {
       kicker: "Închirieri biciclete electrice · Sovata",
@@ -134,6 +161,16 @@ export const dict: Record<Lang, Dict> = {
   },
 
   hu: {
+    seo: {
+      title: "Elektromos kerékpár kölcsönzés Szováta | Explore More",
+      description:
+        "Bérelj elektromos hegyi kerékpárt Szovátán — 1, 2 vagy 4 órára. Fedezd fel a Medve-tavat, a sódombokat és az erdei ösvényeket. Sisak és zár mellékelve.",
+    },
+    images: {
+      heroAlt: "Elektromos kerékpár Szováta környéki ösvényeken",
+      aboutAlt: "Hegyi táj Szováta környékén",
+      galleryAlt: "Látkép Szováta környékén",
+    },
     nav: { about: "Rólunk", prices: "Árak", gallery: "Galéria", contact: "Kapcsolat" },
     hero: {
       kicker: "Elektromos kerékpár kölcsönzés · Szováta",
@@ -178,6 +215,16 @@ export const dict: Record<Lang, Dict> = {
   },
 
   en: {
+    seo: {
+      title: "E-bike Rental in Sovata | Explore More",
+      description:
+        "Rent an electric mountain bike in Sovata — by 1, 2 or 4 hours. Explore Bear Lake, the salt hills and forest trails. Helmet and lock included.",
+    },
+    images: {
+      heroAlt: "Electric bike on the trails around Sovata",
+      aboutAlt: "Mountain scenery around Sovata",
+      galleryAlt: "View around Sovata",
+    },
     nav: { about: "About", prices: "Prices", gallery: "Gallery", contact: "Contact" },
     hero: {
       kicker: "E-bike rentals · Sovata",
@@ -221,3 +268,6 @@ export const dict: Record<Lang, Dict> = {
     footer: { tagline: "E-bike adventures in Sovata", rights: "All rights reserved." },
   },
 };
+
+// Shape of one language's content — passed as a prop into section components.
+export type Content = (typeof dict)[Lang];

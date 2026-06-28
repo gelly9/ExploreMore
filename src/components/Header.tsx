@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useLang } from "@/lib/i18n";
-import { LANGS, site } from "@/content/site";
+import Link from "next/link";
+import { Content, Lang, LANGS, site } from "@/content/site";
+import { LANG_PATH } from "@/lib/seo";
 
-export function Header() {
-  const { lang, setLang, t } = useLang();
+export function Header({ lang, t }: { lang: Lang; t: Content }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -57,7 +57,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          {/* Language toggle with a sliding thumb */}
+          {/* Language switch — real links to the per-language URLs */}
           <div
             className={`relative flex rounded-full p-0.5 text-xs font-semibold ${
               solid ? "bg-paper" : "bg-white/15"
@@ -73,20 +73,21 @@ export function Header() {
               }}
             />
             {LANGS.map((l) => (
-              <button
+              <Link
                 key={l}
-                onClick={() => setLang(l)}
-                className={`relative z-10 flex-1 rounded-full px-2.5 py-1 uppercase transition-colors ${
+                href={LANG_PATH[l]}
+                hrefLang={l}
+                className={`relative z-10 flex-1 rounded-full px-2.5 py-1 text-center uppercase transition-colors ${
                   lang === l
                     ? "text-charcoal"
                     : solid
                       ? "text-muted hover:text-charcoal"
                       : "text-white/80 hover:text-white"
                 }`}
-                aria-pressed={lang === l}
+                aria-current={lang === l ? "true" : undefined}
               >
                 {l}
-              </button>
+              </Link>
             ))}
           </div>
 

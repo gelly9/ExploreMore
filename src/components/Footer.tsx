@@ -1,10 +1,8 @@
 "use client";
 
-import { useLang } from "@/lib/i18n";
-import { site } from "@/content/site";
+import { Content, site } from "@/content/site";
 
-export function Footer() {
-  const { t } = useLang();
+export function Footer({ t }: { t: Content }) {
   return (
     <footer className="bg-forest py-10 text-white/70">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-5 text-center sm:flex-row sm:justify-between sm:px-8 sm:text-left">

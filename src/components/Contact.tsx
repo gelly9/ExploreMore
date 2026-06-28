@@ -1,11 +1,9 @@
 "use client";
 
-import { useLang } from "@/lib/i18n";
-import { site } from "@/content/site";
+import { Content, site } from "@/content/site";
 import { Reveal } from "./Reveal";
 
-export function Contact() {
-  const { t } = useLang();
+export function Contact({ t }: { t: Content }) {
   const tel = site.phone.replace(/\s/g, "");
   return (
     <section id="contact" className="bg-ink py-24 text-white sm:py-32">

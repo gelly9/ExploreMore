@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useLang } from "@/lib/i18n";
-import { site } from "@/content/site";
+import { Content, site } from "@/content/site";
 import { asset } from "@/lib/asset";
 import { Reveal } from "./Reveal";
 
@@ -35,8 +34,7 @@ function RangeRow({
   );
 }
 
-export function About() {
-  const { t } = useLang();
+export function About({ t }: { t: Content }) {
   const r = t.about.range;
   const max = Math.max(site.range.pedalKm, site.range.ebikeKm);
   const pedalPct = (site.range.pedalKm / max) * 100;
@@ -85,7 +83,7 @@ export function About() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={asset(site.media.about)}
-                alt=""
+                alt={t.images.aboutAlt}
                 className="aspect-[4/5] w-full object-cover"
               />
               <div className="absolute bottom-5 left-5 rounded-2xl bg-cream/90 px-5 py-3 backdrop-blur">

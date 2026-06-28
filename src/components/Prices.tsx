@@ -1,12 +1,10 @@
 "use client";
 
-import { useLang } from "@/lib/i18n";
-import { site } from "@/content/site";
+import { Content, site } from "@/content/site";
 import { asset } from "@/lib/asset";
 import { Reveal } from "./Reveal";
 
-export function Prices() {
-  const { t } = useLang();
+export function Prices({ t }: { t: Content }) {
   const duration = (h: number) =>
     `${h} ${h === 1 ? t.prices.hourUnit.one : t.prices.hourUnit.many}`;
 

@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useLang } from "@/lib/i18n";
-import { site } from "@/content/site";
+import { Content, site } from "@/content/site";
 import { asset } from "@/lib/asset";
 
-export function Hero() {
-  const { t } = useLang();
+export function Hero({ t }: { t: Content }) {
   const bgRef = useRef<HTMLDivElement>(null);
 
   // Subtle parallax on the hero image (desktop + motion-OK only).
@@ -46,7 +44,7 @@ export function Hero() {
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={asset(site.media.hero)} alt="" className="kenburns h-full w-full object-cover" />
+          <img src={asset(site.media.hero)} alt={t.images.heroAlt} className="kenburns h-full w-full object-cover" />
         )}
       </div>
       {/* Cinematic gradient — warmer, forest-dusk tone */}
@@ -96,7 +94,7 @@ export function Hero() {
           style={{ animationDelay: "0.75s" }}
         >
           <a
-            href="#rides"
+            href="#prices"
             className="rounded-full bg-lime px-7 py-3.5 text-sm font-semibold text-charcoal transition-transform hover:-translate-y-0.5 sm:text-base"
           >
             {t.hero.ctaPrimary}

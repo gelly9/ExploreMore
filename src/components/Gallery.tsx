@@ -1,12 +1,10 @@
 "use client";
 
-import { useLang } from "@/lib/i18n";
-import { site } from "@/content/site";
+import { Content, site } from "@/content/site";
 import { asset } from "@/lib/asset";
 import { Reveal } from "./Reveal";
 
-export function Gallery() {
-  const { t } = useLang();
+export function Gallery({ t }: { t: Content }) {
   return (
     <section id="gallery" className="bg-cream py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -29,7 +27,7 @@ export function Gallery() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={asset(src)}
-                alt=""
+                alt={t.images.galleryAlt}
                 className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
             </div>
