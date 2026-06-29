@@ -98,6 +98,8 @@ type Dict = {
     callLabel: string;
     whatsappLabel: string;
     whatsappMsg: string; // prefilled WhatsApp message
+    contactLabel: string; // floating button: open
+    closeLabel: string; // floating button: close
     fbLabel: string;
     locationLabel: string;
     hoursLabel: string;
@@ -155,6 +157,8 @@ export const dict: Record<Lang, Dict> = {
       callLabel: "Sună-ne",
       whatsappLabel: "Scrie-ne pe WhatsApp",
       whatsappMsg: "Bună! Aș dori să închiriez o bicicletă electrică în Sovata.",
+      contactLabel: "Contactează-ne",
+      closeLabel: "Închide",
       fbLabel: "Scrie-ne pe Facebook",
       locationLabel: "Locație",
       hoursLabel: "Program",
@@ -211,6 +215,8 @@ export const dict: Record<Lang, Dict> = {
       callLabel: "Hívj minket",
       whatsappLabel: "Írj nekünk WhatsAppon",
       whatsappMsg: "Szia! Szeretnék elektromos kerékpárt bérelni Szovátán.",
+      contactLabel: "Kapcsolat",
+      closeLabel: "Bezárás",
       fbLabel: "Írj a Facebookon",
       locationLabel: "Helyszín",
       hoursLabel: "Nyitvatartás",
@@ -267,6 +273,8 @@ export const dict: Record<Lang, Dict> = {
       callLabel: "Call us",
       whatsappLabel: "Message us on WhatsApp",
       whatsappMsg: "Hi! I'd like to rent an e-bike in Sovata.",
+      contactLabel: "Contact us",
+      closeLabel: "Close",
       fbLabel: "Message us on Facebook",
       locationLabel: "Location",
       hoursLabel: "Hours",
