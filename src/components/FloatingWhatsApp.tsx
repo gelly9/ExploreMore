@@ -78,7 +78,7 @@ export function FloatingWhatsApp({ t }: { t: Content }) {
           aria-label={open ? t.contact.closeLabel : t.contact.contactLabel}
           title={open ? t.contact.closeLabel : t.contact.contactLabel}
           className={`flex h-14 w-14 items-center justify-center rounded-full shadow-lg ring-1 ring-black/10 transition-all duration-300 ease-out hover:scale-105 active:scale-95 ${
-            open ? "rotate-90 bg-charcoal text-white" : "bg-lime text-charcoal"
+            open ? "rotate-90 bg-charcoal text-white" : "bg-lime text-white"
           }`}
         >
           {open ? (
