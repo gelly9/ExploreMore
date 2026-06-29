@@ -32,7 +32,7 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
         solid ? "bg-cream/90 shadow-sm backdrop-blur" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
         <a
           href="#top"
           className={`font-display text-lg font-extrabold tracking-tight transition-colors ${
@@ -42,12 +42,12 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
           Explore<span className="text-lime">More</span>
         </a>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 md:flex">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className={`text-sm font-medium transition-colors hover:text-lime-dark ${
+              className={`text-base font-medium transition-colors hover:text-lime-dark ${
                 solid ? "text-charcoal" : "text-white/90"
               }`}
             >
@@ -59,7 +59,7 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
         <div className="flex items-center gap-3">
           {/* Language switch — real links to the per-language URLs */}
           <div
-            className={`relative flex rounded-full p-0.5 text-xs font-semibold ${
+            className={`relative flex rounded-full p-0.5 text-sm font-semibold ${
               solid ? "bg-paper" : "bg-white/15"
             }`}
           >
@@ -93,7 +93,7 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
 
           <a
             href={`tel:${site.phone.replace(/\s/g, "")}`}
-            className="hidden rounded-full bg-lime px-4 py-2 text-sm font-semibold text-charcoal transition-transform hover:-translate-y-0.5 sm:inline-block"
+            className="hidden rounded-full bg-lime px-5 py-2.5 text-base font-semibold text-charcoal transition-transform hover:-translate-y-0.5 sm:inline-block"
           >
             {t.hero.ctaCall}
           </a>

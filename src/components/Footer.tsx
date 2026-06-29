@@ -10,9 +10,9 @@ export function Footer({ t }: { t: Content }) {
           <p className="font-display text-lg font-extrabold text-white">
             Explore<span className="text-lime">More</span>
           </p>
-          <p className="text-sm">{t.footer.tagline}</p>
+          <p className="text-base">{t.footer.tagline}</p>
         </div>
-        <div className="flex items-center gap-5 text-sm">
+        <div className="flex items-center gap-5 text-base">
           <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="hover:text-lime">
             {site.phone}
           </a>
@@ -21,7 +21,7 @@ export function Footer({ t }: { t: Content }) {
           </a>
         </div>
       </div>
-      <p className="mt-6 text-center text-xs text-white/40">
+      <p className="mt-6 text-center text-sm text-white/40">
         © {new Date().getFullYear()} Explore More — {t.footer.rights}
       </p>
     </footer>

@@ -19,8 +19,8 @@ function RangeRow({
   return (
     <div>
       <div className="mb-1.5 flex items-baseline justify-between">
-        <span className="text-sm font-semibold text-charcoal">{label}</span>
-        <span className="nums font-display text-sm font-bold text-charcoal">{km} km</span>
+        <span className="text-base font-semibold text-charcoal">{label}</span>
+        <span className="nums font-display text-base font-bold text-charcoal">{km} km</span>
       </div>
       <div className="h-3 w-full overflow-hidden rounded-full bg-black/5">
         <div
@@ -74,7 +74,7 @@ export function About({ t }: { t: Content }) {
             <div ref={chartRef} className="mt-10 max-w-md space-y-5">
               <RangeRow label={r.pedalLabel} km={site.range.pedalKm} pct={shown ? pedalPct : 0} tone="muted" />
               <RangeRow label={r.ebikeLabel} km={site.range.ebikeKm} pct={shown ? ebikePct : 0} tone="lime" />
-              <p className="text-xs text-muted">{r.caption}</p>
+              <p className="text-sm text-muted">{r.caption}</p>
             </div>
           </Reveal>
 
@@ -88,7 +88,7 @@ export function About({ t }: { t: Content }) {
               />
               <div className="absolute bottom-5 left-5 rounded-2xl bg-cream/90 px-5 py-3 backdrop-blur">
                 <p className="font-display text-2xl font-extrabold text-charcoal">Sovata</p>
-                <p className="text-sm text-muted">Transilvania, România</p>
+                <p className="text-base text-muted">Transilvania, România</p>
               </div>
             </div>
           </Reveal>

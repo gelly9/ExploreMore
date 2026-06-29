@@ -35,10 +35,10 @@ export function Prices({ t }: { t: Content }) {
                 <h3 className="font-display text-2xl font-extrabold text-white">
                   {t.prices.bikeName}
                 </h3>
-                <p className="mt-1 max-w-sm text-sm leading-relaxed text-white/80">
+                <p className="mt-1 max-w-sm text-base leading-relaxed text-white/80">
                   {t.prices.bikeDesc}
                 </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-lime px-3 py-1.5 text-xs font-bold text-charcoal">
+                <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-lime px-3 py-1.5 text-sm font-bold text-charcoal">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M20 6 9 17l-5-5" />
                   </svg>
@@ -76,7 +76,7 @@ export function Prices({ t }: { t: Content }) {
                       <span className="font-display text-2xl font-extrabold text-charcoal">
                         {p.price}
                       </span>
-                      <span className="ml-1 text-sm font-medium text-muted">
+                      <span className="ml-1 text-base font-medium text-muted">
                         {site.currency}
                       </span>
                     </div>
