@@ -20,6 +20,7 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
     { href: "#about", label: t.nav.about },
     { href: "#prices", label: t.nav.prices },
     { href: "#gallery", label: t.nav.gallery },
+    { href: "#faq", label: t.nav.faq },
     { href: "#contact", label: t.nav.contact },
   ];
 

@@ -67,7 +67,7 @@ type Dict = {
   seo: { title: string; description: string };
   // Descriptive image alt text (image SEO + accessibility).
   images: { heroAlt: string; aboutAlt: string; galleryAlt: string };
-  nav: { about: string; prices: string; gallery: string; contact: string };
+  nav: { about: string; prices: string; gallery: string; faq: string; contact: string };
   hero: {
     kicker: string;
     titleTop: string;
@@ -92,6 +92,7 @@ type Dict = {
     cta: string;
   };
   gallery: { title: string; lead: string };
+  faq: { title: string; lead: string; items: { q: string; a: string }[] };
   contact: {
     title: string;
     lead: string;
@@ -121,7 +122,7 @@ export const dict: Record<Lang, Dict> = {
       aboutAlt: "Peisaj montan în jurul Sovatei",
       galleryAlt: "Priveliște din jurul Sovatei",
     },
-    nav: { about: "Despre", prices: "Prețuri", gallery: "Galerie", contact: "Contact" },
+    nav: { about: "Despre", prices: "Prețuri", gallery: "Galerie", faq: "Întrebări", contact: "Contact" },
     hero: {
       kicker: "Închirieri biciclete electrice · Sovata",
       titleTop: "Mergi mai departe.",
@@ -151,6 +152,32 @@ export const dict: Record<Lang, Dict> = {
       cta: "Rezervă telefonic",
     },
     gallery: { title: "Locuri pe traseu", lead: "Câteva dintre priveliștile din jurul Sovatei." },
+    faq: {
+      title: "Întrebări frecvente",
+      lead: "Răspunsuri rapide înainte să pornești la drum.",
+      items: [
+        {
+          q: "Trebuie să rezerv în avans?",
+          a: "Fără aplicație sau rezervare online — sună-ne sau scrie-ne pe WhatsApp ca să-ți păstrăm bicicleta. Poți veni și direct, în limita disponibilității.",
+        },
+        {
+          q: "E greu să mergi pe o bicicletă electrică?",
+          a: "Deloc. Asistența la pedalare îți ușurează urcușurile și se conduce exact ca o bicicletă obișnuită. Îți facem un scurt instructaj înainte de plecare, indiferent de experiență.",
+        },
+        {
+          q: "Cât de departe pot ajunge cu o încărcare?",
+          a: "Aproximativ 40 km cu asistență electrică la o încărcare — suficient pentru o jumătate de zi de explorat lacurile, dealurile de sare și potecile din jurul Sovatei.",
+        },
+        {
+          q: "Ce este inclus în închiriere?",
+          a: "Casca și încuietoarea vin cu fiecare bicicletă, plus un scurt instructaj și recomandări pentru cele mai frumoase trasee din apropiere.",
+        },
+        {
+          q: "Cum pot plăti?",
+          a: "Poți plăti pe loc, cash sau cu cardul, când ridici bicicleta.",
+        },
+      ],
+    },
     contact: {
       title: "Contactează-ne",
       lead: "Rezervă-ți bicicleta sau întreabă-ne orice — îți răspundem cu drag.",
@@ -179,7 +206,7 @@ export const dict: Record<Lang, Dict> = {
       aboutAlt: "Hegyi táj Szováta környékén",
       galleryAlt: "Látkép Szováta környékén",
     },
-    nav: { about: "Rólunk", prices: "Árak", gallery: "Galéria", contact: "Kapcsolat" },
+    nav: { about: "Rólunk", prices: "Árak", gallery: "Galéria", faq: "Kérdések", contact: "Kapcsolat" },
     hero: {
       kicker: "Elektromos kerékpár kölcsönzés · Szováta",
       titleTop: "Menj tovább.",
@@ -209,6 +236,32 @@ export const dict: Record<Lang, Dict> = {
       cta: "Foglalás telefonon",
     },
     gallery: { title: "Helyek az úton", lead: "Néhány a Szováta környéki látnivalókból." },
+    faq: {
+      title: "Gyakori kérdések",
+      lead: "Gyors válaszok, mielőtt útnak indulsz.",
+      items: [
+        {
+          q: "Kell előre foglalnom?",
+          a: "Nincs szükség alkalmazásra vagy online foglalásra — hívj minket vagy írj WhatsAppon, és fenntartjuk a kerékpárt. Helyben is jöhetsz, amíg van szabad bicikli.",
+        },
+        {
+          q: "Nehéz elektromos kerékpárral menni?",
+          a: "Egyáltalán nem. A pedálsegítség könnyűvé teszi a kapaszkodókat, és pont úgy vezethető, mint egy hagyományos bicikli. Indulás előtt rövid eligazítást adunk, tapasztalattól függetlenül.",
+        },
+        {
+          q: "Milyen messzire jutok egy töltéssel?",
+          a: "Körülbelül 40 km elektromos segítséggel egy töltéssel — bőven elég egy fél napos felfedezéshez a tavak, sódombok és erdei ösvények körül.",
+        },
+        {
+          q: "Mit tartalmaz a kölcsönzés?",
+          a: "Sisak és zár minden kerékpárhoz jár, valamint egy rövid eligazítás és tippek a legszebb közeli útvonalakhoz.",
+        },
+        {
+          q: "Hogyan fizethetek?",
+          a: "Helyben fizethetsz készpénzzel vagy kártyával, amikor átveszed a kerékpárt.",
+        },
+      ],
+    },
     contact: {
       title: "Lépj kapcsolatba velünk",
       lead: "Foglald le a kerékpárod, vagy kérdezz bármit — szívesen segítünk.",
@@ -237,7 +290,7 @@ export const dict: Record<Lang, Dict> = {
       aboutAlt: "Mountain scenery around Sovata",
       galleryAlt: "View around Sovata",
     },
-    nav: { about: "About", prices: "Prices", gallery: "Gallery", contact: "Contact" },
+    nav: { about: "About", prices: "Prices", gallery: "Gallery", faq: "FAQ", contact: "Contact" },
     hero: {
       kicker: "E-bike rentals · Sovata",
       titleTop: "Ride further.",
@@ -267,6 +320,32 @@ export const dict: Record<Lang, Dict> = {
       cta: "Book by phone",
     },
     gallery: { title: "Places along the way", lead: "A few of the sights around Sovata." },
+    faq: {
+      title: "Frequently asked questions",
+      lead: "Quick answers before you set off.",
+      items: [
+        {
+          q: "Do I need to book in advance?",
+          a: "No app or online booking needed — just call or message us on WhatsApp to reserve your bike. You can also drop by, subject to availability.",
+        },
+        {
+          q: "Is it hard to ride an electric bike?",
+          a: "Not at all. The pedal assist makes the hills easy and it rides just like a normal bike. We'll give you a quick run-through before you set off, whatever your experience.",
+        },
+        {
+          q: "How far can I go on a single charge?",
+          a: "Around 40 km of electric-assisted riding on one charge — plenty for a half-day exploring the lakes, salt hills and forest trails around Sovata.",
+        },
+        {
+          q: "What's included in the rental?",
+          a: "A helmet and a lock come with every bike, plus a short tutorial and tips on the best nearby routes.",
+        },
+        {
+          q: "How do I pay?",
+          a: "You can pay on the spot by cash or card when you pick up the bike.",
+        },
+      ],
+    },
     contact: {
       title: "Get in touch",
       lead: "Reserve your bike or ask us anything — we're happy to help.",
