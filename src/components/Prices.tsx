@@ -67,7 +67,7 @@ export function Prices({ t }: { t: Content }) {
                         {duration(p.hours)}
                       </span>
                       {popular && (
-                        <span className="rounded-full bg-lime px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-charcoal">
+                        <span className="rounded-full bg-lime px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-charcoal">
                           {t.prices.popular}
                         </span>
                       )}
@@ -86,7 +86,7 @@ export function Prices({ t }: { t: Content }) {
             </div>
 
             <a
-              href="#contact"
+              href={`tel:${site.phone.replace(/\s/g, "")}`}
               className="mt-7 inline-block self-start rounded-full bg-charcoal px-8 py-4 font-semibold text-white transition-transform hover:-translate-y-0.5"
             >
               {t.prices.cta}

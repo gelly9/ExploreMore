@@ -1,6 +1,7 @@
 "use client";
 
 import { Content, site } from "@/content/site";
+import { phoneDisplay } from "@/lib/contact";
 
 export function Footer({ t }: { t: Content }) {
   return (
@@ -14,14 +15,14 @@ export function Footer({ t }: { t: Content }) {
         </div>
         <div className="flex items-center gap-5 text-base">
           <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="hover:text-lime">
-            {site.phone}
+            {phoneDisplay()}
           </a>
           <a href={site.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-lime">
             Facebook
           </a>
         </div>
       </div>
-      <p className="mt-6 text-center text-sm text-white/40">
+      <p className="mt-6 text-center text-sm text-white/60">
         © {new Date().getFullYear()} Explore More — {t.footer.rights}
       </p>
     </footer>

@@ -58,7 +58,7 @@ export function Hero({ t }: { t: Content }) {
           style={{ animationDelay: "0.1s" }}
         >
           <span className="h-px w-7 bg-lime" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/85">
+          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-white/85">
             {t.hero.kicker}
           </span>
         </p>
@@ -100,7 +100,7 @@ export function Hero({ t }: { t: Content }) {
             {t.hero.ctaPrimary}
           </a>
           <a
-            href="#contact"
+            href={`tel:${site.phone.replace(/\s/g, "")}`}
             className="rounded-full border border-white/25 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/10 sm:text-base"
           >
             {t.hero.ctaCall}

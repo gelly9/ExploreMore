@@ -133,7 +133,7 @@ export const dict: Record<Lang, Dict> = {
     },
     about: {
       title: "Mai multă rază, același efort",
-      lead: "Asistența electrică flaturează dealurile și scurtează distanțele. Cu același efort de pedalare, ajungi de aproape trei ori mai departe decât pe o bicicletă obișnuită.",
+      lead: "Asistența electrică aplatizează dealurile și scurtează distanțele. Cu același efort de pedalare, ajungi de aproape trei ori mai departe decât pe o bicicletă obișnuită.",
       range: {
         pedalLabel: "Bicicletă obișnuită",
         ebikeLabel: "Bicicletă electrică",
