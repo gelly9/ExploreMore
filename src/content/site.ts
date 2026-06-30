@@ -105,7 +105,6 @@ type Dict = {
     locationLabel: string;
     hoursLabel: string;
     hours: string;
-    trust: string[];
   };
   footer: { tagline: string; rights: string };
 };
@@ -190,7 +189,6 @@ export const dict: Record<Lang, Dict> = {
       locationLabel: "Locație",
       hoursLabel: "Program",
       hours: "Zilnic 09:00 – 19:00",
-      trust: ["Cască și încuietoare incluse", "Pe loc, fără aplicație", "Recomandat pe Facebook"],
     },
     footer: { tagline: "Aventuri pe biciclete electrice în Sovata", rights: "Toate drepturile rezervate." },
   },
@@ -274,7 +272,6 @@ export const dict: Record<Lang, Dict> = {
       locationLabel: "Helyszín",
       hoursLabel: "Nyitvatartás",
       hours: "Naponta 09:00 – 19:00",
-      trust: ["Sisak és zár mellékelve", "Helyben, alkalmazás nélkül", "Ajánlott a Facebookon"],
     },
     footer: { tagline: "Elektromos kerékpáros kalandok Szovátán", rights: "Minden jog fenntartva." },
   },
@@ -358,7 +355,6 @@ export const dict: Record<Lang, Dict> = {
       locationLabel: "Location",
       hoursLabel: "Hours",
       hours: "Daily 9:00 – 19:00",
-      trust: ["Helmet & lock included", "On the spot, no app", "Loved on Facebook"],
     },
     footer: { tagline: "E-bike adventures in Sovata", rights: "All rights reserved." },
   },

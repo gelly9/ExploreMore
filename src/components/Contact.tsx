@@ -48,18 +48,6 @@ export function Contact({ t }: { t: Content }) {
               {t.contact.whatsappLabel}
             </a>
 
-            {/* Trust signals */}
-            <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-              {t.contact.trust.map((item) => (
-                <li key={item} className="flex items-center gap-1.5 text-base text-white/70">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8dc63f" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <a
                 href={site.facebook}
