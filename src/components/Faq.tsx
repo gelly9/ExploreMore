@@ -21,26 +21,28 @@ export function Faq({ t }: { t: Content }) {
           <p className="mt-4 text-lg leading-relaxed text-muted">{t.faq.lead}</p>
         </Reveal>
 
-        <Reveal className="mt-10 space-y-3">
+        <div className="mt-10 space-y-3">
           {t.faq.items.map((item, i) => {
             const isOpen = openIdx === i;
             return (
-              <div
-                key={item.q}
-                className={`overflow-hidden rounded-2xl border bg-cream transition-colors ${
-                  isOpen ? "border-lime" : "border-black/5"
-                }`}
-              >
+              <Reveal key={item.q} delay={i * 70}>
+                <div
+                  className={`overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
+                    isOpen
+                      ? "border-lime bg-lime-soft shadow-md"
+                      : "border-black/5 bg-cream shadow-sm"
+                  }`}
+                >
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : i)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-black/[0.02]"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                 >
                   <span className="font-display text-lg font-bold text-charcoal">{item.q}</span>
                   <span
-                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
-                      isOpen ? "rotate-180 bg-lime text-charcoal" : "bg-black/5 text-charcoal"
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all duration-[400ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
+                      isOpen ? "rotate-180 scale-110 bg-lime text-charcoal" : "bg-black/5 text-charcoal"
                     }`}
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -48,20 +50,29 @@ export function Faq({ t }: { t: Content }) {
                     </svg>
                   </span>
                 </button>
-                {/* grid-rows 0fr→1fr gives a smooth height animation */}
+                {/* grid-rows 0fr→1fr animates the height with a smooth expo curve */}
                 <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                  className={`grid transition-[grid-template-rows] duration-[450ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
                     isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-base leading-relaxed text-muted">{item.a}</p>
+                    {/* answer fades + slides in, synced with the expansion */}
+                    <p
+                      className={`px-6 pb-5 text-base leading-relaxed text-muted transition-all duration-300 ease-out ${
+                        isOpen ? "translate-y-0 opacity-100" : "-translate-y-1.5 opacity-0"
+                      }`}
+                      style={{ transitionDelay: isOpen ? "120ms" : "0ms" }}
+                    >
+                      {item.a}
+                    </p>
                   </div>
                 </div>
-              </div>
+                </div>
+              </Reveal>
             );
           })}
-        </Reveal>
+        </div>
       </div>
     </section>
   );
