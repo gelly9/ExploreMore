@@ -64,7 +64,9 @@ export function Contact({ t }: { t: Content }) {
                 <span className="block text-sm font-semibold uppercase tracking-wider text-lime">
                   {t.contact.hoursLabel}
                 </span>
-                <span className="mt-1 block text-base text-white/80">{t.contact.hours}</span>
+                <span className="mt-1 block text-base text-white/80">
+                  {`${t.contact.hoursPrefix} ${site.hours.opens} – ${site.hours.closes}`}
+                </span>
               </div>
             </div>
 

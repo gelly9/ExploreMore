@@ -9,7 +9,7 @@ export function Faq({ t }: { t: Content }) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-paper py-12 sm:py-16">
+    <section id="faq" className="bg-cream py-12 sm:py-16">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <Reveal>
           <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-charcoal">
@@ -30,7 +30,7 @@ export function Faq({ t }: { t: Content }) {
                   className={`overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
                     isOpen
                       ? "border-lime bg-lime-soft shadow-md"
-                      : "border-black/5 bg-cream shadow-sm"
+                      : "border-black/5 bg-white shadow-sm"
                   }`}
                 >
                 <button

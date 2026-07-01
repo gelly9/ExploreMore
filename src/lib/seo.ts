@@ -42,6 +42,7 @@ export function buildMetadata(lang: Lang): Metadata {
 export function localBusinessJsonLd(lang: Lang) {
   const t = dict[lang];
   const a = site.address;
+  const prices = site.pricing.map((p) => p.price);
   return {
     "@context": "https://schema.org",
     "@type": "BicycleStore",
@@ -50,7 +51,7 @@ export function localBusinessJsonLd(lang: Lang) {
     image: `${SITE_URL}/og.jpg`,
     url: SITE_URL + LANG_PATH[lang],
     telephone: site.phone,
-    priceRange: site.priceRange,
+    priceRange: `${Math.min(...prices)}–${Math.max(...prices)} RON`,
     address: {
       "@type": "PostalAddress",
       ...(a.street ? { streetAddress: a.street } : {}),

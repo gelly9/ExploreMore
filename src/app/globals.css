@@ -102,4 +102,12 @@ body {
   .line-rise { transform: none; animation: none; }
   .enter { opacity: 1; animation: none; }
   .kenburns { animation: none; }
+  /* Neutralise remaining motion: range bars, FAQ accordion, FAB morph. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

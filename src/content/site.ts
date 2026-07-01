@@ -28,8 +28,7 @@ export const site = {
     countryCode: "RO",
   },
   geo: { lat: 46.5979, lng: 25.0786 }, // approx Sovata centre — refine to the address
-  hours: { opens: "09:00", closes: "19:00" }, // daily
-  priceRange: "40–120 RON",
+  hours: { opens: "09:00", closes: "19:00" }, // daily — drives both the schema and the visible string
 
   media: {
     logo: "/media/logo.png",
@@ -104,7 +103,7 @@ type Dict = {
     fbLabel: string;
     locationLabel: string;
     hoursLabel: string;
-    hours: string;
+    hoursPrefix: string; // e.g. "Daily" — times come from site.hours
   };
   footer: { tagline: string; rights: string };
 };
@@ -142,7 +141,7 @@ export const dict: Record<Lang, Dict> = {
     },
     prices: {
       title: "Bicicleta & prețurile",
-      lead: "O bicicletă electrică de munte premium, întreținută cu grijă. Închiriaz-o pe 1, 2 sau 4 ore.",
+      lead: "O bicicletă electrică de munte premium, întreținută cu grijă.",
       bikeName: "E-bike de munte",
       bikeDesc: "Robustă și fiabilă, pentru poteci, dealuri și drumurile din jurul Sovatei.",
       includes: "Cască și încuietoare incluse",
@@ -165,11 +164,7 @@ export const dict: Record<Lang, Dict> = {
         },
         {
           q: "Cât de departe pot ajunge cu o încărcare?",
-          a: "Aproximativ 40 km cu asistență electrică la o încărcare — suficient pentru o jumătate de zi de explorat lacurile, dealurile de sare și potecile din jurul Sovatei.",
-        },
-        {
-          q: "Ce este inclus în închiriere?",
-          a: "Casca și încuietoarea vin cu fiecare bicicletă, plus un scurt instructaj și recomandări pentru cele mai frumoase trasee din apropiere.",
+          a: "Asistența electrică acoperă cu ușurință o jumătate de zi de explorat, iar fiecare bicicletă pleacă la drum complet încărcată.",
         },
         {
           q: "Cum pot plăti?",
@@ -188,7 +183,7 @@ export const dict: Record<Lang, Dict> = {
       fbLabel: "Scrie-ne pe Facebook",
       locationLabel: "Locație",
       hoursLabel: "Program",
-      hours: "Zilnic 09:00 – 19:00",
+      hoursPrefix: "Zilnic",
     },
     footer: { tagline: "Aventuri pe biciclete electrice în Sovata", rights: "Toate drepturile rezervate." },
   },
@@ -225,7 +220,7 @@ export const dict: Record<Lang, Dict> = {
     },
     prices: {
       title: "A kerékpár és az árak",
-      lead: "Egy prémium, gondosan karbantartott hegyi elektromos kerékpár. Bérelhető 1, 2 vagy 4 órára.",
+      lead: "Egy prémium, gondosan karbantartott hegyi elektromos kerékpár.",
       bikeName: "Hegyi e-bike",
       bikeDesc: "Strapabíró és megbízható, ösvényekre, dombokra és a Szováta környéki utakra.",
       includes: "Sisak és zár mellékelve",
@@ -248,11 +243,7 @@ export const dict: Record<Lang, Dict> = {
         },
         {
           q: "Milyen messzire jutok egy töltéssel?",
-          a: "Körülbelül 40 km elektromos segítséggel egy töltéssel — bőven elég egy fél napos felfedezéshez a tavak, sódombok és erdei ösvények körül.",
-        },
-        {
-          q: "Mit tartalmaz a kölcsönzés?",
-          a: "Sisak és zár minden kerékpárhoz jár, valamint egy rövid eligazítás és tippek a legszebb közeli útvonalakhoz.",
+          a: "Az elektromos segítség kényelmesen kitart egy fél napos felfedezésre, és minden kerékpár teljesen feltöltve indul.",
         },
         {
           q: "Hogyan fizethetek?",
@@ -271,7 +262,7 @@ export const dict: Record<Lang, Dict> = {
       fbLabel: "Írj a Facebookon",
       locationLabel: "Helyszín",
       hoursLabel: "Nyitvatartás",
-      hours: "Naponta 09:00 – 19:00",
+      hoursPrefix: "Naponta",
     },
     footer: { tagline: "Elektromos kerékpáros kalandok Szovátán", rights: "Minden jog fenntartva." },
   },
@@ -308,7 +299,7 @@ export const dict: Record<Lang, Dict> = {
     },
     prices: {
       title: "The bike & prices",
-      lead: "One premium, well-kept mountain e-bike. Rent it for 1, 2 or 4 hours.",
+      lead: "One premium, well-kept mountain e-bike.",
       bikeName: "Mountain e-bike",
       bikeDesc: "Rugged and reliable, built for the trails, hills and roads around Sovata.",
       includes: "Helmet & lock included",
@@ -331,11 +322,7 @@ export const dict: Record<Lang, Dict> = {
         },
         {
           q: "How far can I go on a single charge?",
-          a: "Around 40 km of electric-assisted riding on one charge — plenty for a half-day exploring the lakes, salt hills and forest trails around Sovata.",
-        },
-        {
-          q: "What's included in the rental?",
-          a: "A helmet and a lock come with every bike, plus a short tutorial and tips on the best nearby routes.",
+          a: "The electric assist comfortably covers a half-day of exploring, and every bike starts fully charged.",
         },
         {
           q: "How do I pay?",
@@ -354,7 +341,7 @@ export const dict: Record<Lang, Dict> = {
       fbLabel: "Message us on Facebook",
       locationLabel: "Location",
       hoursLabel: "Hours",
-      hours: "Daily 9:00 – 19:00",
+      hoursPrefix: "Daily",
     },
     footer: { tagline: "E-bike adventures in Sovata", rights: "All rights reserved." },
   },

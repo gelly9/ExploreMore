@@ -41,8 +41,8 @@ export function Home({ lang }: { lang: Lang }) {
       <main>
         <Hero t={t} />
         <About t={t} />
-        <Prices t={t} />
         <Gallery t={t} />
+        <Prices t={t} />
         <Faq t={t} />
         <Contact t={t} />
       </main>

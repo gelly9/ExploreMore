@@ -59,7 +59,7 @@ export function About({ t }: { t: Content }) {
   }, []);
 
   return (
-    <section id="about" className="overflow-hidden bg-cream py-12 sm:py-16">
+    <section id="about" className="overflow-hidden bg-paper py-12 sm:py-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal className="order-2 lg:order-1">
