@@ -110,6 +110,7 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
                 key={l}
                 href={LANG_PATH[l]}
                 hrefLang={l}
+                scroll={false}
                 className={`relative z-10 flex-1 rounded-full px-2.5 py-1 text-center uppercase transition-colors ${
                   lang === l
                     ? "text-charcoal"
