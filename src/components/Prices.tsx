@@ -57,10 +57,8 @@ export function Prices({ t }: { t: Content }) {
                 return (
                   <div
                     key={p.hours}
-                    className={`flex items-center justify-between rounded-2xl border px-6 py-5 transition-colors ${
-                      popular
-                        ? "border-lime bg-lime-soft"
-                        : "border-black/10 bg-cream hover:border-black/20"
+                    className={`flex items-center justify-between rounded-2xl border px-6 py-5 ${
+                      popular ? "border-lime bg-lime-soft" : "border-black/10 bg-cream"
                     }`}
                   >
                     <div className="flex items-center gap-3">

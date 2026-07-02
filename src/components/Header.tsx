@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Content, Lang, LANGS } from "@/content/site";
 import { LANG_PATH } from "@/lib/seo";
@@ -11,6 +11,21 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const navRef = useRef<HTMLElement>(null);
+  const [bar, setBar] = useState({ left: 0, width: 0 });
+
+  // Measure the active link so the underline can slide beneath it.
+  useEffect(() => {
+    const measure = () => {
+      const el = active
+        ? navRef.current?.querySelector<HTMLElement>(`a[href="#${active}"]`)
+        : null;
+      if (el) setBar({ left: el.offsetLeft, width: el.offsetWidth });
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [active]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -67,26 +82,27 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
           Explore<span className="text-lime">More</span>
         </a>
 
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 md:flex">
-          {links.map((l) => {
-            const isActive = active === l.href.slice(1);
-            return (
-              <a
-                key={l.href}
-                href={l.href}
-                aria-current={isActive ? "true" : undefined}
-                className={`relative text-base font-medium transition-colors hover:text-lime-dark ${
-                  solid ? "text-charcoal" : "text-white/90"
-                } ${
-                  isActive
-                    ? "after:absolute after:-bottom-2.5 after:left-0 after:h-1.5 after:w-full after:rounded-full after:bg-lime"
-                    : ""
-                }`}
-              >
-                {l.label}
-              </a>
-            );
-          })}
+        <nav ref={navRef} className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 md:flex">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              aria-current={active === l.href.slice(1) ? "true" : undefined}
+              className={`text-base font-medium transition-colors hover:text-lime-dark ${
+                solid ? "text-charcoal" : "text-white/90"
+              }`}
+            >
+              {l.label}
+            </a>
+          ))}
+          {/* Single underline that glides to the active link */}
+          <span
+            aria-hidden
+            className={`absolute -bottom-1.5 left-0 h-0.5 rounded-full bg-lime transition-all duration-300 ease-out ${
+              active ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ transform: `translateX(${bar.left}px)`, width: bar.width }}
+          />
         </nav>
 
         <div className="flex items-center gap-3">
@@ -111,7 +127,7 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
                 href={LANG_PATH[l]}
                 hrefLang={l}
                 scroll={false}
-                className={`relative z-10 flex-1 rounded-full px-2.5 py-1 text-center uppercase transition-colors ${
+                className={`relative z-10 flex-1 rounded-full px-3 py-1.5 text-center uppercase transition-colors md:px-2.5 md:py-1 ${
                   lang === l
                     ? "text-charcoal"
                     : solid
@@ -127,7 +143,7 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
 
           <button
             onClick={() => setOpen((v) => !v)}
-            className={`md:hidden ${solid ? "text-charcoal" : "text-white"}`}
+            className={`-m-2 p-2 md:hidden ${solid ? "text-charcoal" : "text-white"}`}
             aria-label="Menu"
           >
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
