@@ -99,6 +99,12 @@ export function Hero({ t }: { t: Content }) {
           >
             {t.hero.ctaPrimary}
           </a>
+          <a
+            href="#gallery"
+            className="rounded-full border border-white/25 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/10 sm:text-base"
+          >
+            {t.hero.ctaGallery}
+          </a>
         </div>
       </div>
     </section>

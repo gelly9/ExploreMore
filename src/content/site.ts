@@ -73,7 +73,7 @@ type Dict = {
     titleBottom: string;
     subtitle: string;
     ctaPrimary: string;
-    ctaCall: string;
+    ctaGallery: string;
   };
   about: {
     title: string;
@@ -88,9 +88,8 @@ type Dict = {
     includes: string;
     hourUnit: { one: string; many: string };
     popular: string;
-    cta: string;
   };
-  gallery: { title: string; lead: string };
+  gallery: { title: string; lead: string; prevLabel: string; nextLabel: string };
   faq: { title: string; lead: string; items: { q: string; a: string }[] };
   contact: {
     title: string;
@@ -128,7 +127,7 @@ export const dict: Record<Lang, Dict> = {
       subtitle:
         "Vezi cât de departe poți ajunge în jurul Sovatei pe o bicicletă electrică premium — Lacul Ursu, dealurile de sare și potecile din pădure. În ritmul tău.",
       ctaPrimary: "Vezi prețurile",
-      ctaCall: "Sună-ne",
+      ctaGallery: "Vezi galeria",
     },
     about: {
       title: "Mai multă rază, același efort",
@@ -147,9 +146,13 @@ export const dict: Record<Lang, Dict> = {
       includes: "Cască și încuietoare incluse",
       hourUnit: { one: "oră", many: "ore" },
       popular: "Cea mai aleasă",
-      cta: "Rezervă telefonic",
     },
-    gallery: { title: "Locuri pe traseu", lead: "Câteva dintre priveliștile din jurul Sovatei." },
+    gallery: {
+      title: "Locuri pe traseu",
+      lead: "Câteva dintre priveliștile din jurul Sovatei.",
+      prevLabel: "Imaginea anterioară",
+      nextLabel: "Imaginea următoare",
+    },
     faq: {
       title: "Întrebări frecvente",
       lead: "Răspunsuri rapide înainte să pornești la drum.",
@@ -207,7 +210,7 @@ export const dict: Record<Lang, Dict> = {
       subtitle:
         "Nézd meg, milyen messzire jutsz Szováta környékén egy prémium elektromos kerékpáron — Medve-tó, sódombok és erdei ösvények. A saját tempódban.",
       ctaPrimary: "Árak megtekintése",
-      ctaCall: "Hívj minket",
+      ctaGallery: "Galéria megtekintése",
     },
     about: {
       title: "Nagyobb táv, ugyanannyi erővel",
@@ -226,9 +229,13 @@ export const dict: Record<Lang, Dict> = {
       includes: "Sisak és zár mellékelve",
       hourUnit: { one: "óra", many: "óra" },
       popular: "Legnépszerűbb",
-      cta: "Foglalás telefonon",
     },
-    gallery: { title: "Helyek az úton", lead: "Néhány a Szováta környéki látnivalókból." },
+    gallery: {
+      title: "Helyek az úton",
+      lead: "Néhány a Szováta környéki látnivalókból.",
+      prevLabel: "Előző kép",
+      nextLabel: "Következő kép",
+    },
     faq: {
       title: "Gyakori kérdések",
       lead: "Gyors válaszok, mielőtt útnak indulsz.",
@@ -286,7 +293,7 @@ export const dict: Record<Lang, Dict> = {
       subtitle:
         "See how far you can get around Sovata on a premium electric bike — Bear Lake, the salt hills and forest trails. At your own pace.",
       ctaPrimary: "View prices",
-      ctaCall: "Call us",
+      ctaGallery: "See the gallery",
     },
     about: {
       title: "More range, same effort",
@@ -305,9 +312,13 @@ export const dict: Record<Lang, Dict> = {
       includes: "Helmet & lock included",
       hourUnit: { one: "hour", many: "hours" },
       popular: "Most popular",
-      cta: "Book by phone",
     },
-    gallery: { title: "Places along the way", lead: "A few of the sights around Sovata." },
+    gallery: {
+      title: "Places along the way",
+      lead: "A few of the sights around Sovata.",
+      prevLabel: "Previous image",
+      nextLabel: "Next image",
+    },
     faq: {
       title: "Frequently asked questions",
       lead: "Quick answers before you set off.",

@@ -5,15 +5,39 @@ import Link from "next/link";
 import { Content, Lang, LANGS } from "@/content/site";
 import { LANG_PATH } from "@/lib/seo";
 
+const SECTION_IDS = ["about", "gallery", "prices", "faq", "contact"];
+
 export function Header({ lang, t }: { lang: Lang; t: Content }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Scroll-spy: the section crossing a band around the viewport's middle
+  // becomes the active nav link (none while the hero is in view).
+  useEffect(() => {
+    const visible = new Set<string>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) visible.add(e.target.id);
+          else visible.delete(e.target.id);
+        }
+        setActive(SECTION_IDS.find((id) => visible.has(id)) ?? "");
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    for (const id of SECTION_IDS) {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    }
+    return () => io.disconnect();
   }, []);
 
   const links = [
@@ -44,17 +68,25 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
         </a>
 
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 md:flex">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={`text-base font-medium transition-colors hover:text-lime-dark ${
-                solid ? "text-charcoal" : "text-white/90"
-              }`}
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) => {
+            const isActive = active === l.href.slice(1);
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                aria-current={isActive ? "true" : undefined}
+                className={`relative text-base font-medium transition-colors hover:text-lime-dark ${
+                  solid ? "text-charcoal" : "text-white/90"
+                } ${
+                  isActive
+                    ? "after:absolute after:-bottom-2.5 after:left-0 after:h-1.5 after:w-full after:rounded-full after:bg-lime"
+                    : ""
+                }`}
+              >
+                {l.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-3">

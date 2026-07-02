@@ -29,6 +29,7 @@ export function Prices({ t }: { t: Content }) {
               <img
                 src={asset(site.bike)}
                 alt={t.prices.bikeName}
+                loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent p-6 pt-20">
@@ -85,12 +86,6 @@ export function Prices({ t }: { t: Content }) {
               })}
             </div>
 
-            <a
-              href={`tel:${site.phone.replace(/\s/g, "")}`}
-              className="mt-7 inline-block self-start rounded-full bg-charcoal px-8 py-4 font-semibold text-white transition-transform hover:-translate-y-0.5"
-            >
-              {t.prices.cta}
-            </a>
           </Reveal>
         </div>
       </div>

@@ -84,6 +84,9 @@ export function About({ t }: { t: Content }) {
               <img
                 src={asset(site.media.about)}
                 alt={t.images.aboutAlt}
+                width={1200}
+                height={900}
+                loading="lazy"
                 className="aspect-[4/3] w-full object-cover"
               />
               <div className="absolute bottom-5 left-5 rounded-2xl bg-cream/90 px-5 py-3 backdrop-blur">
