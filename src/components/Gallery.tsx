@@ -82,9 +82,15 @@ export function Gallery({ t }: { t: Content }) {
           aria-label={alt(openIdx)}
           className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/95 p-4"
           onClick={close}
-          onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
+          onTouchStart={(e) => {
+            // Only a single finger counts as a swipe — pinch-zoom is not navigation.
+            touchX.current = e.touches.length === 1 ? e.touches[0].clientX : null;
+          }}
+          onTouchMove={(e) => {
+            if (e.touches.length > 1) touchX.current = null;
+          }}
           onTouchEnd={(e) => {
-            if (touchX.current === null) return;
+            if (touchX.current === null || e.touches.length > 0) return;
             const dx = e.changedTouches[0].clientX - touchX.current;
             touchX.current = null;
             if (Math.abs(dx) > 48) step(dx < 0 ? 1 : -1);
