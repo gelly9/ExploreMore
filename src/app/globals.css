@@ -57,16 +57,16 @@ body {
   font-feature-settings: "tnum" 1, "lnum" 1;
 }
 
-/* ── Scroll-reveal: shorter, faster, more deliberate than a blanket fade ── */
+/* ── Scroll-reveal: shorter, faster, more deliberate than a blanket fade ──
+   Visible by default so the static HTML works without JS; after hydration,
+   elements still below the viewport get .is-out and animate in on scroll. */
 .reveal {
-  opacity: 0;
-  transform: translateY(16px);
   transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal[data-dir="left"] { transform: translateX(-24px); }
-.reveal[data-dir="right"] { transform: translateX(24px); }
-.reveal.is-visible { opacity: 1; transform: none; }
+.reveal.is-out { opacity: 0; transform: translateY(16px); }
+.reveal.is-out[data-dir="left"] { transform: translateX(-24px); }
+.reveal.is-out[data-dir="right"] { transform: translateX(24px); }
 
 /* ── Hero entrance: masked line-rise + staggered fades (runs on load) ── */
 .line-mask { display: block; overflow: hidden; padding-bottom: 0.08em; }
@@ -98,7 +98,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal.is-out { opacity: 1; transform: none; transition: none; }
   .line-rise { transform: none; animation: none; }
   .enter { opacity: 1; animation: none; }
   .kenburns { animation: none; }

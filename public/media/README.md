@@ -5,7 +5,6 @@ from Facebook, keeping the **same filenames**, and the site updates automaticall
 
 | File              | Used for                        | Suggested size        |
 | ----------------- | ------------------------------- | --------------------- |
-| `logo.png`        | Logo (footer / branding)        | square, transparent   |
 | `hero.jpg`        | Full-screen hero background     | landscape, ~2000px wide |
 | `about.jpg`       | "Why an e-bike?" portrait image | portrait, ~1400px tall  |
 | `bike.jpg`        | The mountain e-bike photo       | landscape, ~900px wide  |

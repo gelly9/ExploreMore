@@ -80,7 +80,7 @@ export function Gallery({ t }: { t: Content }) {
           role="dialog"
           aria-modal="true"
           aria-label={alt(openIdx)}
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/95 p-4"
+          className="fixed inset-0 z-[60] flex touch-pinch-zoom items-center justify-center overscroll-contain bg-ink/95 p-4"
           onClick={close}
           onTouchStart={(e) => {
             // Only a single finger counts as a swipe — pinch-zoom is not navigation.

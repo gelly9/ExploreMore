@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
-import { SITE_URL } from "@/content/site";
+import { site, SITE_URL } from "@/content/site";
+import { asset } from "@/lib/asset";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin", "latin-ext"],
@@ -32,6 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ro" className={`${display.variable} ${body.variable} h-full antialiased`}>
+      <head>
+        {/* The hero image is the LCP element on every route — fetch it first. */}
+        <link rel="preload" as="image" href={asset(site.media.hero)} fetchPriority="high" />
+      </head>
       <body className="min-h-full">{children}</body>
     </html>
   );

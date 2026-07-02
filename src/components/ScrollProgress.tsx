@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 // A thin lime line that traces across the top as you scroll — a "trail" being
 // drawn. Doubles as orientation on the one-pager. Replaces the bouncing arrow.
+// The transform is written straight to the DOM inside the rAF: no React
+// re-render per scroll frame.
 export function ScrollProgress() {
-  const [p, setP] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let raf = 0;
@@ -14,7 +16,8 @@ export function ScrollProgress() {
       raf = requestAnimationFrame(() => {
         const h = document.documentElement;
         const max = h.scrollHeight - h.clientHeight;
-        setP(max > 0 ? h.scrollTop / max : 0);
+        const p = max > 0 ? h.scrollTop / max : 0;
+        if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
       });
     };
     onScroll();
@@ -30,8 +33,9 @@ export function ScrollProgress() {
   return (
     <div className="fixed inset-x-0 top-0 z-[60] h-0.5 bg-transparent" aria-hidden>
       <div
+        ref={barRef}
         className="h-full origin-left bg-lime"
-        style={{ transform: `scaleX(${p})` }}
+        style={{ transform: "scaleX(0)" }}
       />
     </div>
   );

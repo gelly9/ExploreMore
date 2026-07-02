@@ -18,15 +18,20 @@ export function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
-  const [shown, setShown] = useState(false);
+  // Visible by default (matches the static HTML, which must work without JS).
+  const [out, setOut] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Only elements still below the viewport at hydration take part in the
+    // animation — anything already on screen stays put (no flash).
+    if (el.getBoundingClientRect().top <= window.innerHeight) return;
+    setOut(true);
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setShown(true);
+          setOut(false);
           io.disconnect();
         }
       },
@@ -40,7 +45,7 @@ export function Reveal({
     <Tag
       ref={ref}
       data-dir={dir && dir !== "up" ? dir : undefined}
-      className={`reveal ${shown ? "is-visible" : ""} ${className}`}
+      className={`reveal ${out ? "is-out" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}

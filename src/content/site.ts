@@ -31,7 +31,6 @@ export const site = {
   hours: { opens: "09:00", closes: "19:00" }, // daily — drives both the schema and the visible string
 
   media: {
-    logo: "/media/logo.png",
     hero: "/media/hero.jpg",
     // Optional: drop a /media/hero.mp4 in and set this to enable a video hero.
     heroVideo: "" as string,

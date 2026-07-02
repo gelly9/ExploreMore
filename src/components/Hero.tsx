@@ -44,7 +44,12 @@ export function Hero({ t }: { t: Content }) {
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={asset(site.media.hero)} alt={t.images.heroAlt} className="kenburns h-full w-full object-cover" />
+          <img
+            src={asset(site.media.hero)}
+            alt={t.images.heroAlt}
+            fetchPriority="high"
+            className="kenburns h-full w-full object-cover"
+          />
         )}
       </div>
       {/* Cinematic gradient — warmer, forest-dusk tone */}
