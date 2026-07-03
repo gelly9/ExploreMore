@@ -58,6 +58,7 @@ export const site = {
     { hours: 2, price: 70 },
     { hours: 4, price: 120, popular: true },
   ],
+  guide: { price: 200 }, // optional local tour guide — flat rate per tour
   currency: "lei",
 
   // Range comparison (About). Rough km reachable on one charge of effort.
@@ -92,6 +93,9 @@ type Dict = {
     includes: string;
     hourUnit: { one: string; many: string };
     popular: string;
+    extrasLabel: string;
+    guideLabel: string;
+    guideNote: string;
   };
   gallery: { title: string; lead: string; prevLabel: string; nextLabel: string; viewAll: string };
   faq: { title: string; lead: string; items: { q: string; a: string }[] };
@@ -150,6 +154,9 @@ export const dict: Record<Lang, Dict> = {
       includes: "Cască și încuietoare incluse",
       hourUnit: { one: "oră", many: "ore" },
       popular: "Cea mai aleasă",
+      extrasLabel: "Opțional",
+      guideLabel: "Ghid de tură",
+      guideNote: "preț fix pe tură",
     },
     gallery: {
       title: "Locuri pe traseu",
@@ -234,6 +241,9 @@ export const dict: Record<Lang, Dict> = {
       includes: "Sisak és zár mellékelve",
       hourUnit: { one: "óra", many: "óra" },
       popular: "Legnépszerűbb",
+      extrasLabel: "Opcionális",
+      guideLabel: "Túravezető",
+      guideNote: "fix ár túránként",
     },
     gallery: {
       title: "Helyek az úton",
@@ -318,6 +328,9 @@ export const dict: Record<Lang, Dict> = {
       includes: "Helmet & lock included",
       hourUnit: { one: "hour", many: "hours" },
       popular: "Most popular",
+      extrasLabel: "Optional",
+      guideLabel: "Tour guide",
+      guideNote: "flat rate per tour",
     },
     gallery: {
       title: "Places along the way",
