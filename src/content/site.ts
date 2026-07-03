@@ -34,7 +34,7 @@ export const site = {
     hero: "/media/hero.jpg",
     // Optional: drop a /media/hero.mp4 in and set this to enable a video hero.
     heroVideo: "" as string,
-    about: "/media/about.jpg",
+    about: "/media/ebike.webp",
     gallery: [
       "/media/gallery-1.jpg",
       "/media/gallery-2.jpg",
@@ -115,7 +115,7 @@ export const dict: Record<Lang, Dict> = {
     },
     images: {
       heroAlt: "Bicicletă electrică pe potecile din jurul Sovatei",
-      aboutAlt: "Peisaj montan în jurul Sovatei",
+      aboutAlt: "Bicicleta electrică de munte Haibike pe care o închiriem",
       galleryAlt: "Priveliște din jurul Sovatei",
     },
     nav: { about: "Despre", prices: "Prețuri", gallery: "Galerie", faq: "Întrebări", contact: "Contact" },
@@ -198,7 +198,7 @@ export const dict: Record<Lang, Dict> = {
     },
     images: {
       heroAlt: "Elektromos kerékpár Szováta környéki ösvényeken",
-      aboutAlt: "Hegyi táj Szováta környékén",
+      aboutAlt: "A bérelhető Haibike elektromos hegyikerékpár",
       galleryAlt: "Látkép Szováta környékén",
     },
     nav: { about: "Rólunk", prices: "Árak", gallery: "Galéria", faq: "Kérdések", contact: "Kapcsolat" },
@@ -281,7 +281,7 @@ export const dict: Record<Lang, Dict> = {
     },
     images: {
       heroAlt: "Electric bike on the trails around Sovata",
-      aboutAlt: "Mountain scenery around Sovata",
+      aboutAlt: "The Haibike electric mountain bike we rent",
       galleryAlt: "View around Sovata",
     },
     nav: { about: "About", prices: "Prices", gallery: "Gallery", faq: "FAQ", contact: "Contact" },

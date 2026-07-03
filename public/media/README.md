@@ -6,7 +6,7 @@ from Facebook, keeping the **same filenames**, and the site updates automaticall
 | File              | Used for                        | Suggested size        |
 | ----------------- | ------------------------------- | --------------------- |
 | `hero.jpg`        | Full-screen hero background     | landscape, ~2000px wide |
-| `about.jpg`       | "Why an e-bike?" portrait image | portrait, ~1400px tall  |
+| `ebike.webp`      | "Why an e-bike?" section image  | ~1000px wide            |
 | `bike.jpg`        | The mountain e-bike photo       | landscape, ~900px wide  |
 | `gallery-1..6.jpg`| Gallery grid                    | ~1000px wide            |
 

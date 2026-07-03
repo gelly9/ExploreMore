@@ -79,19 +79,29 @@ export function About({ t }: { t: Content }) {
           </Reveal>
 
           <Reveal dir="right" delay={120} className="order-1 lg:order-2">
-            <div className="relative overflow-hidden rounded-3xl lg:-mr-16 xl:-mr-24">
+            <div className="overflow-hidden rounded-3xl bg-white ring-1 ring-black/5 lg:-mr-16 xl:-mr-24">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={asset(site.media.about)}
                 alt={t.images.aboutAlt}
-                width={1200}
-                height={900}
+                width={1009}
+                height={575}
                 loading="lazy"
-                className="aspect-[4/3] w-full object-cover"
+                className="w-full p-4 sm:p-6"
               />
-              <div className="absolute bottom-5 left-5 rounded-2xl bg-cream/90 px-5 py-3 backdrop-blur">
-                <p className="font-display text-2xl font-extrabold text-charcoal">Sovata</p>
-                <p className="text-base text-muted">Transilvania, România</p>
+              <div className="flex items-center justify-between gap-4 border-t border-black/5 px-5 py-4 sm:px-6">
+                <div>
+                  <p className="font-display text-xl font-extrabold text-charcoal">Sovata</p>
+                  <p className="text-sm text-muted">Transilvania, România</p>
+                </div>
+                <span
+                  aria-hidden
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-lime-soft text-lime-dark"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" />
+                  </svg>
+                </span>
               </div>
             </div>
           </Reveal>
