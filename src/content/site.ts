@@ -172,7 +172,7 @@ export const dict: Record<Lang, Dict> = {
         },
         {
           q: "Cât de departe pot ajunge cu o încărcare?",
-          a: "Asistența electrică acoperă cu ușurință o jumătate de zi de explorat, iar fiecare bicicletă pleacă la drum complet încărcată.",
+          a: "Pe teren deluros 30–40 km, iar cu puțină atenție chiar și 50–60 km. Fiecare bicicletă pleacă la drum complet încărcată.",
         },
         {
           q: "Cum pot plăti?",
@@ -256,7 +256,7 @@ export const dict: Record<Lang, Dict> = {
         },
         {
           q: "Milyen messzire jutok egy töltéssel?",
-          a: "Az elektromos segítség kényelmesen kitart egy fél napos felfedezésre, és minden kerékpár teljesen feltöltve indul.",
+          a: "Dombos terepen 30–40 km, kis odafigyeléssel akár 50–60 km is lehet. Minden kerékpár teljesen feltöltve indul.",
         },
         {
           q: "Hogyan fizethetek?",
@@ -340,7 +340,7 @@ export const dict: Record<Lang, Dict> = {
         },
         {
           q: "How far can I go on a single charge?",
-          a: "The electric assist comfortably covers a half-day of exploring, and every bike starts fully charged.",
+          a: "On hilly terrain 30–40 km, and with a little care even 50–60 km. Every bike starts fully charged.",
         },
         {
           q: "How do I pay?",
