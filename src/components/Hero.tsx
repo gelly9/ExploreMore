@@ -8,7 +8,9 @@ export function Hero({ t }: { t: Content }) {
   const bgRef = useRef<HTMLDivElement>(null);
 
   // Subtle parallax on the hero image (desktop + motion-OK only).
+  // Skipped for the video hero: transforming a playing video causes judder.
   useEffect(() => {
+    if (site.media.heroVideo) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce || window.innerWidth < 768) return;
     let raf = 0;
@@ -34,12 +36,11 @@ export function Hero({ t }: { t: Content }) {
       <div ref={bgRef} className="absolute inset-0 will-change-transform">
         {site.media.heroVideo ? (
           <video
-            className="kenburns h-full w-full object-cover"
+            className="h-full w-full object-cover"
             src={asset(site.media.heroVideo)}
             poster={asset(site.media.hero)}
             autoPlay
             muted
-            loop
             playsInline
           />
         ) : (

@@ -33,7 +33,7 @@ export const site = {
   media: {
     hero: "/media/hero.jpg",
     // Optional: drop a /media/hero.mp4 in and set this to enable a video hero.
-    heroVideo: "" as string,
+    heroVideo: "/media/hero.mp4" as string,
     about: "/media/ebike.webp",
     gallery: [
       "/media/gallery-1.jpg",
