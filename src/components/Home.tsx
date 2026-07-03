@@ -12,7 +12,7 @@ import { Contact } from "./Contact";
 import { Footer } from "./Footer";
 import { FloatingWhatsApp } from "./FloatingWhatsApp";
 
-// Shared page composition rendered by each language route (/, /hu/, /en/).
+// Shared page composition rendered by each language route (/, /ro/, /hu/).
 // Content for the language is selected here and passed down as props.
 export function Home({ lang }: { lang: Lang }) {
   const t = dict[lang];

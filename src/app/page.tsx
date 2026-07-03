@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Home } from "@/components/Home";
 import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = buildMetadata("ro");
+export const metadata: Metadata = buildMetadata("en");
 
 export default function Page() {
-  return <Home lang="ro" />;
+  return <Home lang="en" />;
 }

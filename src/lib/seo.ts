@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { dict, Lang, site, SITE_URL } from "@/content/site";
 
-// URL path per language. RO stays at the root (the launched canonical).
-export const LANG_PATH: Record<Lang, string> = { ro: "/", hu: "/hu/", en: "/en/" };
+// URL path per language. EN sits at the root (the default language).
+export const LANG_PATH: Record<Lang, string> = { ro: "/ro/", hu: "/hu/", en: "/" };
 const OG_LOCALE: Record<Lang, string> = { ro: "ro_RO", hu: "hu_HU", en: "en_US" };
 const HREFLANG: Record<Lang, string> = { ro: "ro-RO", hu: "hu-HU", en: "en-US" };
 
@@ -10,7 +10,7 @@ const HREFLANG: Record<Lang, string> = { ro: "ro-RO", hu: "hu-HU", en: "en-US" }
 // alternates, Open Graph and Twitter. Resolved against metadataBase (layout).
 export function buildMetadata(lang: Lang): Metadata {
   const t = dict[lang];
-  const languages: Record<string, string> = { "x-default": LANG_PATH.ro };
+  const languages: Record<string, string> = { "x-default": LANG_PATH.en };
   (Object.keys(LANG_PATH) as Lang[]).forEach((l) => {
     languages[HREFLANG[l]] = LANG_PATH[l];
   });

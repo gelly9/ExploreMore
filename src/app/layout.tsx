@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ro" className={`${display.variable} ${body.variable} h-full antialiased`}>
+    <html lang="en" className={`${display.variable} ${body.variable} h-full antialiased`}>
       <head>
         {/* The hero image is the LCP element on every route — fetch it first. */}
         <link rel="preload" as="image" href={asset(site.media.hero)} fetchPriority="high" />

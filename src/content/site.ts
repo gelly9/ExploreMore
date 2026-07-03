@@ -6,8 +6,8 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 export type Lang = "ro" | "hu" | "en";
-export const LANGS: Lang[] = ["ro", "hu", "en"];
-export const DEFAULT_LANG: Lang = "ro";
+export const LANGS: Lang[] = ["en", "ro", "hu"];
+export const DEFAULT_LANG: Lang = "en";
 
 export const SITE_URL = "https://exploremore.ro";
 
