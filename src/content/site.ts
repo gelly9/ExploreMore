@@ -210,7 +210,7 @@ export const dict: Record<Lang, Dict> = {
     nav: { about: "Rólunk", prices: "Árak", gallery: "Galéria", faq: "Kérdések", contact: "Kapcsolat" },
     hero: {
       kicker: "Elektromos kerékpár kölcsönzés · Szováta",
-      titleTop: "Éld meg a pillanatot.",
+      titleTop: "Élj a pillanatnak.",
       titleBottom: "Könnyedén.",
       subtitle:
         "Fedezd fel Szovátát és környékét elektromos kerékpáron, helyi idegenvezető kíséretében. A gyönyörű panorámákkal tűzdelt túrákon a kerékpározás élménye garantált. Változatos terepen, erdőn, mezőn keresztül haladó útvonalak a kerékpározás minden örömét biztosítják.",
@@ -294,7 +294,7 @@ export const dict: Record<Lang, Dict> = {
     nav: { about: "About", prices: "Prices", gallery: "Gallery", faq: "FAQ", contact: "Contact" },
     hero: {
       kicker: "E-bike rentals · Sovata",
-      titleTop: "Live the moment.",
+      titleTop: "Live in the moment.",
       titleBottom: "Effortlessly.",
       subtitle:
         "Discover Sovata and its surroundings by e-bike, in the company of a local guide. On tours studded with beautiful panoramas, a great riding experience is guaranteed. Routes across varied terrain, through forests and meadows, offer all the joys of cycling.",
