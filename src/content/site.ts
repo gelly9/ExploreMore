@@ -34,6 +34,8 @@ export const site = {
     hero: "/media/hero.jpg",
     // Optional: drop a /media/hero.mp4 in and set this to enable a video hero.
     heroVideo: "/media/hero.mp4" as string,
+    // First frame of the video — shown while it loads so playback starts seamlessly.
+    heroPoster: "/media/hero-poster.jpg" as string,
     about: "/media/ebike.webp",
     gallery: [
       "/media/gallery-1.jpg",

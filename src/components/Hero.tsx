@@ -38,7 +38,7 @@ export function Hero({ t }: { t: Content }) {
           <video
             className="h-full w-full object-cover"
             src={asset(site.media.heroVideo)}
-            poster={asset(site.media.hero)}
+            poster={asset(site.media.heroPoster || site.media.hero)}
             autoPlay
             muted
             playsInline

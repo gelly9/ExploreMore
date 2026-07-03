@@ -34,8 +34,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable} h-full antialiased`}>
       <head>
-        {/* The hero image is the LCP element on every route — fetch it first. */}
-        <link rel="preload" as="image" href={asset(site.media.hero)} fetchPriority="high" />
+        {/* The hero image (video poster when a video hero is set) is the LCP
+            element on every route — fetch it first. */}
+        <link
+          rel="preload"
+          as="image"
+          href={asset((site.media.heroVideo && site.media.heroPoster) || site.media.hero)}
+          fetchPriority="high"
+        />
       </head>
       <body className="min-h-full">{children}</body>
     </html>
