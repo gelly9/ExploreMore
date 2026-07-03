@@ -36,7 +36,7 @@ export const site = {
     heroVideo: "/media/hero.mp4" as string,
     // First frame of the video — shown while it loads so playback starts seamlessly.
     heroPoster: "/media/hero-poster.jpg" as string,
-    about: "/media/ebike.webp",
+    about: "/media/gallery-8.webp",
     gallery: [
       "/media/gallery-1.webp",
       "/media/gallery-2.webp",
@@ -120,7 +120,7 @@ export const dict: Record<Lang, Dict> = {
     },
     images: {
       heroAlt: "Bicicletă electrică pe potecile din jurul Sovatei",
-      aboutAlt: "Bicicleta electrică de munte Haibike pe care o închiriem",
+      aboutAlt: "Bicicletele noastre electrice Haibike în Sovata",
       galleryAlt: "Priveliște din jurul Sovatei",
     },
     nav: { about: "Despre", prices: "Prețuri", gallery: "Galerie", faq: "Întrebări", contact: "Contact" },
@@ -204,7 +204,7 @@ export const dict: Record<Lang, Dict> = {
     },
     images: {
       heroAlt: "Elektromos kerékpár Szováta környéki ösvényeken",
-      aboutAlt: "A bérelhető Haibike elektromos hegyikerékpár",
+      aboutAlt: "Haibike elektromos kerékpárjaink Szovátán",
       galleryAlt: "Látkép Szováta környékén",
     },
     nav: { about: "Rólunk", prices: "Árak", gallery: "Galéria", faq: "Kérdések", contact: "Kapcsolat" },
@@ -288,7 +288,7 @@ export const dict: Record<Lang, Dict> = {
     },
     images: {
       heroAlt: "Electric bike on the trails around Sovata",
-      aboutAlt: "The Haibike electric mountain bike we rent",
+      aboutAlt: "Our Haibike e-bikes in Sovata",
       galleryAlt: "View around Sovata",
     },
     nav: { about: "About", prices: "Prices", gallery: "Gallery", faq: "FAQ", contact: "Contact" },

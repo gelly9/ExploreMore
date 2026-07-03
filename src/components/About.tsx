@@ -84,10 +84,10 @@ export function About({ t }: { t: Content }) {
               <img
                 src={asset(site.media.about)}
                 alt={t.images.aboutAlt}
-                width={1009}
-                height={575}
+                width={1200}
+                height={900}
                 loading="lazy"
-                className="w-full p-4 sm:p-6"
+                className="aspect-[4/3] w-full object-cover object-[50%_72%]"
               />
               <div className="flex items-center justify-between gap-4 border-t border-black/5 px-5 py-4 sm:px-6">
                 <div>
