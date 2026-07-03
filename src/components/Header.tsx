@@ -75,11 +75,14 @@ export function Header({ lang, t }: { lang: Lang; t: Content }) {
       <div className="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
         <a
           href="#top"
-          className={`font-display text-lg font-extrabold tracking-tight transition-colors ${
+          className={`flex items-center gap-2 font-display text-lg font-extrabold tracking-tight transition-colors ${
             solid ? "text-charcoal" : "text-white"
           }`}
         >
-          Explore<span className="text-lime">More</span>
+          <img src="/logo.svg" alt="" className="h-9 w-auto" />
+          <span>
+            Explore<span className="text-lime">More</span>
+          </span>
         </a>
 
         <nav ref={navRef} className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 md:flex">
