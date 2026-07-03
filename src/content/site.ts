@@ -93,7 +93,7 @@ type Dict = {
     hourUnit: { one: string; many: string };
     popular: string;
   };
-  gallery: { title: string; lead: string; prevLabel: string; nextLabel: string };
+  gallery: { title: string; lead: string; prevLabel: string; nextLabel: string; viewAll: string };
   faq: { title: string; lead: string; items: { q: string; a: string }[] };
   contact: {
     title: string;
@@ -156,6 +156,7 @@ export const dict: Record<Lang, Dict> = {
       lead: "Câteva dintre priveliștile din jurul Sovatei.",
       prevLabel: "Imaginea anterioară",
       nextLabel: "Imaginea următoare",
+      viewAll: "Vezi toate pozele",
     },
     faq: {
       title: "Întrebări frecvente",
@@ -239,6 +240,7 @@ export const dict: Record<Lang, Dict> = {
       lead: "Néhány a Szováta környéki látnivalókból.",
       prevLabel: "Előző kép",
       nextLabel: "Következő kép",
+      viewAll: "Összes kép megtekintése",
     },
     faq: {
       title: "Gyakori kérdések",
@@ -322,6 +324,7 @@ export const dict: Record<Lang, Dict> = {
       lead: "A few of the sights around Sovata.",
       prevLabel: "Previous image",
       nextLabel: "Next image",
+      viewAll: "View all photos",
     },
     faq: {
       title: "Frequently asked questions",

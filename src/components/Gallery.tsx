@@ -50,27 +50,39 @@ export function Gallery({ t }: { t: Content }) {
         </Reveal>
       </div>
 
-      {/* Full-bleed mosaic — breaks out of the page container */}
+      {/* Preview grid — first four photos; the last tile opens the full set */}
       <Reveal className="mt-12">
-        <div className="mx-[calc(50%-50vw)] grid grid-cols-2 gap-1.5 md:grid-cols-3">
-          {images.map((src, i) => (
-            <button
-              key={src}
-              type="button"
-              onClick={() => setOpenIdx(i)}
-              className="group cursor-zoom-in overflow-hidden"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={asset(src)}
-                alt={alt(i)}
-                width={1200}
-                height={900}
-                loading="lazy"
-                className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-            </button>
-          ))}
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-2 px-5 sm:gap-3 sm:px-8 md:grid-cols-4">
+          {images.slice(0, 4).map((src, i) => {
+            const isLast = i === 3 && images.length > 4;
+            return (
+              <button
+                key={src}
+                type="button"
+                onClick={() => setOpenIdx(i)}
+                aria-label={isLast ? t.gallery.viewAll : undefined}
+                className="group relative cursor-zoom-in overflow-hidden rounded-2xl"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={asset(src)}
+                  alt={alt(i)}
+                  width={1200}
+                  height={900}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                {isLast && (
+                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-ink/55 text-white transition-colors group-hover:bg-ink/45">
+                    <span className="font-display text-2xl font-extrabold">
+                      +{images.length - 4}
+                    </span>
+                    <span className="text-sm font-semibold">{t.gallery.viewAll}</span>
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </div>
       </Reveal>
 
