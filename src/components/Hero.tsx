@@ -68,7 +68,7 @@ export function Hero({ t }: { t: Content }) {
           </span>
         </p>
 
-        <h1 className="font-display text-[clamp(2.5rem,11vw,7rem)] leading-[0.95] tracking-tight">
+        <h1 className="font-display text-[clamp(2.25rem,8vw,5rem)] leading-[0.95] tracking-tight">
           <span className="line-mask">
             <span
               className="line-rise font-semibold text-white"

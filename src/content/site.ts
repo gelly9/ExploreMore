@@ -121,10 +121,10 @@ export const dict: Record<Lang, Dict> = {
     nav: { about: "Despre", prices: "Prețuri", gallery: "Galerie", faq: "Întrebări", contact: "Contact" },
     hero: {
       kicker: "Închirieri biciclete electrice · Sovata",
-      titleTop: "Mergi mai departe.",
-      titleBottom: "Descoperă mai mult.",
+      titleTop: "Trăiește clipa.",
+      titleBottom: "Fără efort.",
       subtitle:
-        "Vezi cât de departe poți ajunge în jurul Sovatei pe o bicicletă electrică premium — Lacul Ursu, dealurile de sare și potecile din pădure. În ritmul tău.",
+        "Descoperă Sovata și împrejurimile ei pe bicicletă electrică, în compania unui ghid local. Pe tururile presărate cu panorame superbe, experiența pedalării este garantată. Traseele pe teren variat, prin păduri și pajiști, îți oferă toate bucuriile mersului pe bicicletă.",
       ctaPrimary: "Vezi prețurile",
       ctaGallery: "Vezi galeria",
     },
@@ -204,10 +204,10 @@ export const dict: Record<Lang, Dict> = {
     nav: { about: "Rólunk", prices: "Árak", gallery: "Galéria", faq: "Kérdések", contact: "Kapcsolat" },
     hero: {
       kicker: "Elektromos kerékpár kölcsönzés · Szováta",
-      titleTop: "Menj tovább.",
-      titleBottom: "Fedezz fel többet.",
+      titleTop: "Éld meg a pillanatot.",
+      titleBottom: "Könnyedén.",
       subtitle:
-        "Nézd meg, milyen messzire jutsz Szováta környékén egy prémium elektromos kerékpáron — Medve-tó, sódombok és erdei ösvények. A saját tempódban.",
+        "Fedezd fel Szovátát és környékét elektromos kerékpáron, helyi idegenvezető kíséretében. A gyönyörű panorámákkal tűzdelt túrákon a kerékpározás élménye garantált. Változatos terepen, erdőn, mezőn keresztül haladó útvonalak a kerékpározás minden örömét biztosítják.",
       ctaPrimary: "Árak megtekintése",
       ctaGallery: "Galéria megtekintése",
     },
@@ -287,10 +287,10 @@ export const dict: Record<Lang, Dict> = {
     nav: { about: "About", prices: "Prices", gallery: "Gallery", faq: "FAQ", contact: "Contact" },
     hero: {
       kicker: "E-bike rentals · Sovata",
-      titleTop: "Ride further.",
-      titleBottom: "Discover more.",
+      titleTop: "Live the moment.",
+      titleBottom: "Effortlessly.",
       subtitle:
-        "See how far you can get around Sovata on a premium electric bike — Bear Lake, the salt hills and forest trails. At your own pace.",
+        "Discover Sovata and its surroundings by e-bike, in the company of a local guide. On tours studded with beautiful panoramas, a great riding experience is guaranteed. Routes across varied terrain, through forests and meadows, offer all the joys of cycling.",
       ctaPrimary: "View prices",
       ctaGallery: "See the gallery",
     },
