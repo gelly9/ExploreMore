@@ -51,7 +51,7 @@ export const site = {
   },
 
   // One mountain e-bike, rented by the hour.
-  bike: "/media/bike.jpg",
+  bike: "/media/ebike.webp",
   // Prices are placeholders — edit the numbers freely. `popular` highlights one tier.
   pricing: [
     { hours: 1, price: 40 },

@@ -24,19 +24,22 @@ export function Prices({ t }: { t: Content }) {
         <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
           {/* The bike */}
           <Reveal>
-            <div className="relative h-full min-h-72 overflow-hidden rounded-3xl">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={asset(site.bike)}
-                alt={t.prices.bikeName}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent p-6 pt-20">
-                <h3 className="font-display text-2xl font-extrabold text-white">
+            <div className="flex h-full min-h-72 flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-black/5">
+              {/* The bike fills all the space the text doesn't need */}
+              <div className="relative min-h-52 flex-1">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={asset(site.bike)}
+                  alt={t.prices.bikeName}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-contain p-4 sm:p-6"
+                />
+              </div>
+              <div className="p-6 pt-2">
+                <h3 className="font-display text-2xl font-extrabold text-charcoal">
                   {t.prices.bikeName}
                 </h3>
-                <p className="mt-1 max-w-sm text-base leading-relaxed text-white/80">
+                <p className="mt-1 max-w-sm text-base leading-relaxed text-muted">
                   {t.prices.bikeDesc}
                 </p>
                 <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-lime px-3 py-1.5 text-sm font-bold text-charcoal">
