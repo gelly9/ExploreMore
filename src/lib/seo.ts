@@ -16,6 +16,7 @@ export function buildMetadata(lang: Lang): Metadata {
   });
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: t.seo.title,
     description: t.seo.description,
     alternates: { canonical: LANG_PATH[lang], languages },

@@ -1,7 +1,6 @@
-import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
-import "./globals.css";
-import { site, SITE_URL } from "@/content/site";
+import "../globals.css";
+import { Lang, site } from "@/content/site";
 import { asset } from "@/lib/asset";
 
 const display = Bricolage_Grotesque({
@@ -15,24 +14,18 @@ const body = Hanken_Grotesk({
   variable: "--font-body",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: "Explore More — E-bike Rental in Sovata",
-  description:
-    "Premium electric mountain bike rentals in Sovata. Explore Bear Lake, the salt hills and forest trails — by the hour.",
-};
-
-export const viewport: Viewport = {
-  themeColor: "#2a2a24",
-};
-
-export default function RootLayout({
+// Shared document shell. Each language route group has its own root layout so
+// <html lang> is emitted server-side (correct for /ro and /hu without JS); they
+// all delegate the actual markup here to avoid duplicating the font/head setup.
+export function RootHtml({
+  lang,
   children,
-}: Readonly<{
+}: {
+  lang: Lang;
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} h-full antialiased`}>
+    <html lang={lang} className={`${display.variable} ${body.variable} h-full antialiased`}>
       <head>
         {/* The hero image (video poster when a video hero is set) is the LCP
             element on every route — fetch it first. */}

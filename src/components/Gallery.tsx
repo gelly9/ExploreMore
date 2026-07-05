@@ -34,7 +34,7 @@ export function Gallery({ t }: { t: Content }) {
     };
   }, [openIdx, close, step]);
 
-  const alt = (i: number) => `${t.images.galleryAlt} ${i + 1}`;
+  const alt = (i: number) => t.images.galleryAlts[i] ?? `${t.gallery.title} ${i + 1}`;
 
   return (
     <section id="gallery" className="bg-cream py-12 sm:py-16">

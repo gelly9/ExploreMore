@@ -31,10 +31,12 @@ export const site = {
   hours: { opens: "09:00", closes: "19:00" }, // daily — drives both the schema and the visible string
 
   media: {
-    hero: "/media/hero.jpg",
+    // Still image for the hero — used directly when no video is set, and as the
+    // video's poster. Doubles as the LCP preload target in layout.tsx.
+    hero: "/media/hero-poster.jpg",
     // Optional: drop a /media/hero.mp4 in and set this to enable a video hero.
     heroVideo: "/media/hero.mp4" as string,
-    // First frame of the video — shown while it loads so playback starts seamlessly.
+    // Poster shown while the video loads so playback starts seamlessly.
     heroPoster: "/media/hero-poster.jpg" as string,
     about: "/media/gallery-8.webp",
     gallery: [
@@ -70,7 +72,8 @@ type Dict = {
   // Per-language SEO metadata (<title> / meta description).
   seo: { title: string; description: string };
   // Descriptive image alt text (image SEO + accessibility).
-  images: { heroAlt: string; aboutAlt: string; galleryAlt: string };
+  // galleryAlts is index-aligned to site.media.gallery — one unique line per photo.
+  images: { heroAlt: string; aboutAlt: string; galleryAlts: string[] };
   nav: { about: string; prices: string; gallery: string; faq: string; contact: string };
   hero: {
     kicker: string;
@@ -125,7 +128,17 @@ export const dict: Record<Lang, Dict> = {
     images: {
       heroAlt: "Bicicletă electrică pe potecile din jurul Sovatei",
       aboutAlt: "Bicicletele noastre electrice Haibike în Sovata",
-      galleryAlt: "Priveliște din jurul Sovatei",
+      galleryAlts: [
+        "Doi bicicliști pe biciclete electrice Haibike, oprindu-se pe o pajiște de vară deasupra Sovatei",
+        "Biciclistă cu o bicicletă electrică pe un drum de pietriș, cu priveliște spre un sat de lângă Sovata",
+        "Un cuplu pe biciclete electrice traversând o pajiște de deal deasupra orașului Sovata",
+        "Doi bicicliști pe un drum forestier printre fagi aurii de toamnă, lângă Sovata",
+        "Trei bicicliști traversând o pajiște deschisă înconjurată de pădure de toamnă",
+        "Doi bicicliști pe o potecă îngustă spre un copac singuratic, sub un cer larg",
+        "Trei bicicliști odihnindu-se pe un deal, cu priveliște spre Sovata și valea ei",
+        "Două biciclete electrice Explore More parcate pe iarbă, în Sovata",
+        "Biciclete electrice la un punct de belvedere, cu panoramă peste dealurile din jurul Sovatei",
+      ],
     },
     nav: { about: "Despre", prices: "Prețuri", gallery: "Galerie", faq: "Întrebări", contact: "Contact" },
     hero: {
@@ -212,7 +225,17 @@ export const dict: Record<Lang, Dict> = {
     images: {
       heroAlt: "Elektromos kerékpár Szováta környéki ösvényeken",
       aboutAlt: "Haibike elektromos kerékpárjaink Szovátán",
-      galleryAlt: "Látkép Szováta környékén",
+      galleryAlts: [
+        "Két kerékpáros Haibike elektromos kerékpáron pihen egy nyári réten Szováta fölött",
+        "Kerékpáros elektromos kerékpárral egy murvás úton, kilátással egy Szováta melletti falura",
+        "Pár elektromos kerékpáron egy domboldali réten Szováta városa fölött",
+        "Két kerékpáros erdei úton, aranyló őszi bükkfák között, Szováta közelében",
+        "Három kerékpáros egy nyílt hegyi réten át, őszi erdővel körülvéve",
+        "Két kerékpáros egy keskeny ösvényen egy magányos fa felé, tágas ég alatt",
+        "Három kerékpáros egy dombtetőn pihen, kilátással Szovátára és völgyére",
+        "Két Explore More elektromos kerékpár a füvön parkolva, Szovátán",
+        "Elektromos kerékpárok egy kilátóponton, panorámával a Szováta környéki dombokra",
+      ],
     },
     nav: { about: "Rólunk", prices: "Árak", gallery: "Galéria", faq: "Kérdések", contact: "Kapcsolat" },
     hero: {
@@ -299,7 +322,17 @@ export const dict: Record<Lang, Dict> = {
     images: {
       heroAlt: "Electric bike on the trails around Sovata",
       aboutAlt: "Our Haibike e-bikes in Sovata",
-      galleryAlt: "View around Sovata",
+      galleryAlts: [
+        "Two riders on Haibike e-bikes pausing in a summer meadow above Sovata",
+        "Cyclist with an e-bike on a gravel track overlooking a village near Sovata",
+        "A couple riding e-bikes across a hillside meadow above the town of Sovata",
+        "Two cyclists on a forest road through golden autumn beech trees near Sovata",
+        "Three riders crossing an open upland meadow ringed by autumn forest",
+        "Two e-bike riders following a single track toward a lone tree under a wide sky",
+        "Three riders resting on a hilltop looking down over Sovata and its valley",
+        "Two Explore More branded e-bikes parked on the grass in Sovata",
+        "E-bikes at a hilltop viewpoint with a panorama over the hills around Sovata",
+      ],
     },
     nav: { about: "About", prices: "Prices", gallery: "Gallery", faq: "FAQ", contact: "Contact" },
     hero: {

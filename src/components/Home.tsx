@@ -1,6 +1,5 @@
 import { dict, Lang } from "@/content/site";
 import { localBusinessJsonLd } from "@/lib/seo";
-import { HtmlLang } from "./HtmlLang";
 import { ScrollProgress } from "./ScrollProgress";
 import { Header } from "./Header";
 import { Hero } from "./Hero";
@@ -35,7 +34,6 @@ export function Home({ lang }: { lang: Lang }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <HtmlLang lang={lang} />
       <ScrollProgress />
       <Header lang={lang} t={t} />
       <main>
