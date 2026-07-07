@@ -96,19 +96,11 @@ export function Prices({ t }: { t: Content }) {
                 <span className="h-px flex-1 bg-black/10" />
               </div>
               <div className="flex items-center justify-between rounded-2xl border border-dashed border-black/15 bg-cream px-6 py-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime-soft text-lime-dark">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="7" r="3.2" />
-                      <path d="M5.5 20a6.5 6.5 0 0 1 13 0" />
-                    </svg>
+                <div>
+                  <span className="font-display text-2xl font-extrabold text-charcoal">
+                    {t.prices.guideLabel}
                   </span>
-                  <div>
-                    <span className="font-display text-2xl font-extrabold text-charcoal">
-                      {t.prices.guideLabel}
-                    </span>
-                    <span className="block text-sm text-muted">{t.prices.guideNote}</span>
-                  </div>
+                  <span className="block text-sm text-muted">{t.prices.guideNote}</span>
                 </div>
                 <div className="nums whitespace-nowrap text-right">
                   <span className="font-display text-2xl font-extrabold text-charcoal">
