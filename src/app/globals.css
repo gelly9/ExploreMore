@@ -32,6 +32,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keep in-page jump targets clear of the fixed header. */
+  scroll-padding-top: 4.5rem;
 }
 
 html,

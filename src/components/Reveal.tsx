@@ -24,6 +24,16 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // True when this element sits inside the section the URL hash points at,
+    // i.e. the user just jumped straight here from an in-page link.
+    const inHashTarget = () => {
+      const id = window.location.hash.slice(1);
+      return !!id && !!el.closest(`#${CSS.escape(id)}`);
+    };
+
+    // Landed here directly (e.g. /#prices) — never hide, just show it.
+    if (inHashTarget()) return;
     // Only elements still below the viewport at hydration take part in the
     // animation — anything already on screen stays put (no flash).
     if (el.getBoundingClientRect().top <= window.innerHeight) return;
@@ -38,7 +48,21 @@ export function Reveal({
       { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    // Jumping to this section via a nav / hero link must reveal it now, even
+    // if it lands below the fold or the observer misses the programmatic
+    // smooth-scroll (common on mobile Safari) — otherwise content looks blank.
+    const onHash = () => {
+      if (inHashTarget()) {
+        setOut(false);
+        io.disconnect();
+      }
+    };
+    window.addEventListener("hashchange", onHash);
+    return () => {
+      io.disconnect();
+      window.removeEventListener("hashchange", onHash);
+    };
   }, []);
 
   return (
