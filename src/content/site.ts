@@ -36,6 +36,8 @@ export const site = {
     hero: "/media/hero-poster.jpg",
     // Optional: drop a /media/hero.mp4 in and set this to enable a video hero.
     heroVideo: "/media/hero.mp4" as string,
+    // Lighter, downscaled cut served to phones instead of the full web master.
+    heroVideoMobile: "/media/hero-mobile.mp4" as string,
     // Poster shown while the video loads so playback starts seamlessly.
     heroPoster: "/media/hero-poster.jpg" as string,
     about: "/media/gallery-8.webp",

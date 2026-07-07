@@ -1,11 +1,31 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import { Content, site } from "@/content/site";
 import { asset } from "@/lib/asset";
 
+// Device type doesn't change within a session, so there's nothing to subscribe
+// to — the store is read once on the client.
+const noopSubscribe = () => () => {};
+
 export function Hero({ t }: { t: Content }) {
   const bgRef = useRef<HTMLDivElement>(null);
+
+  // Pick the hero video source on the client so a phone only ever fetches the
+  // lighter mobile cut. Server snapshot is null (SSR renders the poster, no
+  // src) → no hydration mismatch and no heavy master downloaded on mobile.
+  const videoSrc = useSyncExternalStore<string | null>(
+    noopSubscribe,
+    () => {
+      const mobile = window.matchMedia("(max-width: 767px)").matches;
+      return asset(
+        mobile && site.media.heroVideoMobile
+          ? site.media.heroVideoMobile
+          : site.media.heroVideo
+      );
+    },
+    () => null
+  );
 
   // Subtle parallax on the hero image (desktop + motion-OK only).
   // Skipped for the video hero: transforming a playing video causes judder.
@@ -36,8 +56,9 @@ export function Hero({ t }: { t: Content }) {
       <div ref={bgRef} className="absolute inset-0 will-change-transform">
         {site.media.heroVideo ? (
           <video
+            key={videoSrc ?? "pending"}
             className="h-full w-full object-cover"
-            src={asset(site.media.heroVideo)}
+            src={videoSrc ?? undefined}
             poster={asset(site.media.heroPoster || site.media.hero)}
             autoPlay
             muted
