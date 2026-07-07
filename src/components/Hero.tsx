@@ -41,6 +41,7 @@ export function Hero({ t }: { t: Content }) {
             poster={asset(site.media.heroPoster || site.media.hero)}
             autoPlay
             muted
+            loop
             playsInline
           />
         ) : (
