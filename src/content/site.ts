@@ -16,18 +16,18 @@ export const site = {
   brand: "Explore More",
   phone: "+40753538524",
   facebook: "https://www.facebook.com/EbikeSovata",
-  location: "Sovata, Mureș, România",
-  mapEmbed: "https://www.google.com/maps?q=Sovata%2C%20Romania&output=embed",
+  location: "Str. Câmpul Mic 57, 545500 Sovata, Mureș, România",
+  mapEmbed: "https://www.google.com/maps?q=Str.%20C%C3%A2mpul%20Mic%2057%2C%20Sovata%20545500&output=embed",
 
   // Business address & geo — used for the LocalBusiness schema (local SEO).
   address: {
-    street: "", // TODO: add the real street address
+    street: "Str. Câmpul Mic 57",
     locality: "Sovata",
     region: "Mureș",
     postalCode: "545500",
     countryCode: "RO",
   },
-  geo: { lat: 46.5979, lng: 25.0786 }, // approx Sovata centre — refine to the address
+  geo: { lat: 46.603758, lng: 25.094138 }, // Str. Câmpul Mic 57, Sovata (exact)
   hours: { opens: "09:00", closes: "19:00" }, // daily — drives both the schema and the visible string
 
   media: {
