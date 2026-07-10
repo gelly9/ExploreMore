@@ -35,6 +35,8 @@ export function Gallery({ t }: { t: Content }) {
   }, [openIdx, close, step]);
 
   const alt = (i: number) => t.images.galleryAlts[i] ?? `${t.gallery.title} ${i + 1}`;
+  // The grid shows small 4:3 thumbnails; the lightbox loads the full-res original.
+  const thumb = (src: string) => src.replace(/(\.\w+)$/, "-thumb$1");
 
   return (
     <section id="gallery" className="bg-cream py-12 sm:py-16">
@@ -65,10 +67,10 @@ export function Gallery({ t }: { t: Content }) {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={asset(src)}
+                  src={asset(thumb(src))}
                   alt={alt(i)}
-                  width={1200}
-                  height={900}
+                  width={700}
+                  height={525}
                   loading="lazy"
                   className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
