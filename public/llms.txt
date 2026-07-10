@@ -15,6 +15,9 @@
 - Website: https://exploremore.ro
 - Hours: daily 09:00–19:00
 - Languages spoken: Romanian, Hungarian, English
+- Service area: Sovata and the surrounding area — Praid, Corund, Sângeorgiu de Pădure
+- Bear Lake (Lacul Ursu), the salt hills and the forest trails are all rideable
+  directly from the shop; the bikes' pedal assist handles the hilly terrain easily.
 
 ## Prices (RON / lei)
 
@@ -25,9 +28,29 @@
 - Optional local tour guide — 200 lei flat rate per tour
 - Included with every rental: helmet and lock
 
+## Frequently asked questions
+
+- Where can I rent an e-bike in Sovata? At Explore More, Str. Câmpul Mic 57,
+  545500 Sovata (Mureș, Romania). Reserve by phone or WhatsApp on +40 753 538 524,
+  or drop by during opening hours (daily 09:00–19:00), subject to availability.
+- How much does it cost? Electric mountain bike rental is 80 lei for 1 hour,
+  120 lei for 2 hours, 150 lei for 3 hours, or 180 lei for the whole day. An
+  optional local tour guide is 200 lei flat per tour. Helmet and lock are included.
+- Can I ride to Bear Lake (Lacul Ursu)? Yes — Bear Lake, the salt hills and the
+  forest trails around Sovata are all reachable directly from the shop on the e-bike.
+- Do I need to book in advance? No app or online booking needed — just call or
+  message on WhatsApp to reserve, or drop by subject to availability.
+- Is it hard to ride an electric bike? No. The pedal assist makes the hills easy
+  and it rides like a normal bike; we give a quick run-through before you set off.
+- How far can I go on a single charge? Roughly 30–40 km on hilly terrain, and up
+  to 50–60 km with a little care. Every bike starts fully charged.
+- How do I pay? On the spot, by cash or card, when you pick up the bike.
+
 ## Pages
 
 - [Home (English)](https://exploremore.ro/): overview, prices, gallery, contact
+- [Prices](https://exploremore.ro/#prices): all rental tiers and the tour-guide add-on
+- [FAQ](https://exploremore.ro/#faq): booking, range, payment and riding questions
 - [Română](https://exploremore.ro/ro/): versiunea în limba română
 - [Magyar](https://exploremore.ro/hu/): magyar nyelvű változat
 
