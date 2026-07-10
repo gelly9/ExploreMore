@@ -23,7 +23,7 @@ separate from the website — do this in parallel.
 ## 3. Make it compelling
 - Add **photos**: the bikes, riders, scenery (Bear Lake, trails). Profiles with photos get far more clicks.
 - Add attributes (e.g. "helmets provided", languages spoken: RO/HU/EN).
-- Add the **products/services**: 1h / 2h / 4h e-bike rental with prices.
+- Add the **products/services**: e-bike rental — 1h (80 lei) / 2h (120 lei) / 3h (150 lei) / whole day (180 lei).
 
 ## 4. Reviews (the ranking driver)
 - After each rental, ask happy customers to leave a Google review (share your review link).

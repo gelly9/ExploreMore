@@ -17,7 +17,9 @@ export const site = {
   phone: "+40753538524",
   facebook: "https://www.facebook.com/EbikeSovata",
   location: "Str. Câmpul Mic 57, 545500 Sovata, Mureș, România",
-  mapEmbed: "https://www.google.com/maps?q=Str.%20C%C3%A2mpul%20Mic%2057%2C%20Sovata%20545500&output=embed",
+  // Points at the actual Google Business Profile place (by CID) so the pin lands
+  // exactly where the listing is, not on an approximate geocode of the address.
+  mapEmbed: "https://www.google.com/maps?cid=12310476000854117971&output=embed",
 
   // Business address & geo — used for the LocalBusiness schema (local SEO).
   address: {
@@ -27,7 +29,7 @@ export const site = {
     postalCode: "545500",
     countryCode: "RO",
   },
-  geo: { lat: 46.603758, lng: 25.094138 }, // Str. Câmpul Mic 57, Sovata (exact)
+  geo: { lat: 46.6036237, lng: 25.0940913 }, // matches the Google Business Profile pin
   hours: { opens: "09:00", closes: "19:00" }, // daily — drives both the schema and the visible string
 
   media: {
