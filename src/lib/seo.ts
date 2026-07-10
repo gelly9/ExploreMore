@@ -53,6 +53,28 @@ export function localBusinessJsonLd(lang: Lang) {
     url: SITE_URL + LANG_PATH[lang],
     telephone: site.phone,
     priceRange: `${Math.min(...prices)}–${Math.max(...prices)} RON`,
+    // Structured, machine-readable price for each rental duration — lets Google
+    // and AI agents read exact prices, not just the priceRange string.
+    makesOffer: site.pricing.map((p) => {
+      const fullDay = "fullDay" in p && p.fullDay;
+      return {
+        "@type": "Offer",
+        name: fullDay ? "Whole-day e-bike rental" : `${p.hours}-hour e-bike rental`,
+        priceCurrency: "RON",
+        price: p.price,
+        itemOffered: { "@type": "Service", name: "Electric mountain bike rental" },
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: p.price,
+          priceCurrency: "RON",
+          referenceQuantity: {
+            "@type": "QuantitativeValue",
+            value: fullDay ? 1 : p.hours,
+            unitCode: fullDay ? "DAY" : "HUR",
+          },
+        },
+      };
+    }),
     address: {
       "@type": "PostalAddress",
       ...(a.street ? { streetAddress: a.street } : {}),
@@ -70,7 +92,7 @@ export function localBusinessJsonLd(lang: Lang) {
         closes: site.hours.closes,
       },
     ],
-    sameAs: [site.facebook],
+    sameAs: [site.facebook, "https://www.google.com/maps?cid=12310476000854117971"],
     areaServed: { "@type": "City", name: "Sovata" },
   };
 }
