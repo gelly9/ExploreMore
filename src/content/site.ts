@@ -58,9 +58,10 @@ export const site = {
   bike: "/media/ebike.webp",
   // Prices are placeholders — edit the numbers freely. `popular` highlights one tier.
   pricing: [
-    { hours: 1, price: 40 },
-    { hours: 2, price: 70 },
-    { hours: 4, price: 120, popular: true },
+    { hours: 1, price: 80 },
+    { hours: 2, price: 120 },
+    { hours: 3, price: 150 },
+    { hours: 24, price: 180, fullDay: true, popular: true },
   ],
   guide: { price: 200 }, // optional local tour guide — flat rate per tour
   currency: "lei",
@@ -97,6 +98,7 @@ type Dict = {
     bikeDesc: string;
     includes: string;
     hourUnit: { one: string; many: string };
+    wholeDay: string;
     popular: string;
     extrasLabel: string;
     guideLabel: string;
@@ -168,6 +170,7 @@ export const dict: Record<Lang, Dict> = {
       bikeDesc: "Robustă și fiabilă, pentru poteci, dealuri și drumurile din jurul Sovatei.",
       includes: "Cască și încuietoare incluse",
       hourUnit: { one: "oră", many: "ore" },
+      wholeDay: "Toată ziua",
       popular: "Cea mai aleasă",
       extrasLabel: "Opțional",
       guideLabel: "Ghid de tură",
@@ -265,6 +268,7 @@ export const dict: Record<Lang, Dict> = {
       bikeDesc: "Strapabíró és megbízható, ösvényekre, dombokra és a Szováta környéki utakra.",
       includes: "Sisak és zár mellékelve",
       hourUnit: { one: "óra", many: "óra" },
+      wholeDay: "Egész nap",
       popular: "Legnépszerűbb",
       extrasLabel: "Opcionális",
       guideLabel: "Túravezető",
@@ -362,6 +366,7 @@ export const dict: Record<Lang, Dict> = {
       bikeDesc: "Rugged and reliable, built for the trails, hills and roads around Sovata.",
       includes: "Helmet & lock included",
       hourUnit: { one: "hour", many: "hours" },
+      wholeDay: "Whole day",
       popular: "Most popular",
       extrasLabel: "Optional",
       guideLabel: "Tour guide",

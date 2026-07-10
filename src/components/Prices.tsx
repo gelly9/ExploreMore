@@ -57,6 +57,7 @@ export function Prices({ t }: { t: Content }) {
             <div className="space-y-3">
               {site.pricing.map((p) => {
                 const popular = "popular" in p && p.popular;
+                const label = "fullDay" in p && p.fullDay ? t.prices.wholeDay : duration(p.hours);
                 return (
                   <div
                     key={p.hours}
@@ -66,7 +67,7 @@ export function Prices({ t }: { t: Content }) {
                   >
                     <div className="flex items-center gap-3">
                       <span className="nums font-display text-2xl font-extrabold text-charcoal">
-                        {duration(p.hours)}
+                        {label}
                       </span>
                       {popular && (
                         <span className="rounded-full bg-lime px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-charcoal">
